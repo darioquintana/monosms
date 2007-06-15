@@ -5,10 +5,6 @@ namespace Mono.Sms.Core
 {
     public class MailSender : IMailSender
     {
-        public MailSender()
-        {
-        }
-
         private string message;
         private string subject;
         private string smtpServer;
@@ -52,14 +48,13 @@ namespace Mono.Sms.Core
             MailMessage mail = new MailMessage();
 
             mail.From = new MailAddress(this.From);
-            //mail.From = new MailAddress("uooopaa@yahoo.com.ar");
-
+          
             mail.Body = this.message;
 
             mail.To.Add(this.To);
-            //mail.To.Add("uooopaa@gmail.com");
-
+         
             mail.Subject = this.subject;
+
             mail.IsBodyHtml = false;
 
             SmtpClient smtpCli = new SmtpClient(smtpServer);

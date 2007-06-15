@@ -21,7 +21,7 @@ namespace Mono.Sms.Core.UI
 
             Contact contact = new Contact();
             contact.Name = items[0].Text;
-            contact.Number = new CelNumber(Convert.ToInt32(items[0].SubItems[1].Text), Convert.ToInt32(items[0].SubItems[2].Text));
+            contact.Number = new CelNumber(items[0].SubItems[1].Text,items[0].SubItems[2].Text);
             contact.ProviderName = items[0].SubItems[3].Text;
 
             return contact;

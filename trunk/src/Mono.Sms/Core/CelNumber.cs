@@ -4,26 +4,26 @@ namespace Mono.Sms.Core
 {
     public class CelNumber
     {
+        private string codeArea;
+        private string number;
+
         public CelNumber()
         {
         }
 
-        public CelNumber(int codeArea, int number)
+        public CelNumber(string codeArea,string number)
         {
             this.codeArea = codeArea;
             this.number = number;
         }
 
-        private int codeArea;
-        private int number;
-
-        public int CodeArea
+        public string CodeArea
         {
             get { return this.codeArea; }
             set { this.codeArea = value; }
         }
 
-        public int Number
+        public string Number
         {
             get { return number; }
             set { number = value; }
@@ -31,7 +31,7 @@ namespace Mono.Sms.Core
 
         public override string ToString()
         {
-            return string.Concat(codeArea.ToString(), number.ToString());
+            return string.Concat(codeArea, number);
         }
     }
 }
