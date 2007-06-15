@@ -9,10 +9,6 @@ namespace Mono.Sms.Core
     {
         private static List<Contact> list = new List<Contact>();
 
-        public Agenda()
-        {
-        }
-
         public static List<Contact> Contacts
         {
             get { return ReadAgenda(); }
@@ -97,7 +93,7 @@ namespace Mono.Sms.Core
         {
             string[] a = line.Split(',');
 
-            return new Contact(a[0], new CelNumber(Convert.ToInt32(a[1]), Convert.ToInt32(a[2])), a[3]);
+            return new Contact(a[0], new CelNumber(a[1], a[2]), a[3]);
         }
     }
 }

@@ -176,7 +176,6 @@ namespace Mono.Sms
             this.txtAreaCode.Name = "txtAreaCode";
             this.txtAreaCode.Size = new System.Drawing.Size(65, 21);
             this.txtAreaCode.TabIndex = 1;
-            this.txtAreaCode.Text = "3722";
             this.txtAreaCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumber
@@ -186,7 +185,6 @@ namespace Mono.Sms
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(114, 21);
             this.txtNumber.TabIndex = 2;
-            this.txtNumber.Text = "308009";
             this.txtNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCount
@@ -250,6 +248,7 @@ namespace Mono.Sms
             this.txtSearch.Size = new System.Drawing.Size(139, 20);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.Text = "Escribe para buscar...";
+            this.txtSearch.Visible = false;
             // 
             // lv
             // 
@@ -311,9 +310,9 @@ namespace Mono.Sms
             // btnChView
             // 
             this.btnChView.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChView.Location = new System.Drawing.Point(271, 18);
+            this.btnChView.Location = new System.Drawing.Point(310, 18);
             this.btnChView.Name = "btnChView";
-            this.btnChView.Size = new System.Drawing.Size(80, 22);
+            this.btnChView.Size = new System.Drawing.Size(41, 22);
             this.btnChView.TabIndex = 5;
             this.btnChView.UseVisualStyleBackColor = true;
             this.btnChView.Click += new System.EventHandler(this.btnChView_Click);
@@ -337,7 +336,7 @@ namespace Mono.Sms
             this.btnAddContact.Image = ((System.Drawing.Image)(resources.GetObject("btnAddContact.Image")));
             this.btnAddContact.Location = new System.Drawing.Point(6, 250);
             this.btnAddContact.Name = "btnAddContact";
-            this.btnAddContact.Size = new System.Drawing.Size(103, 39);
+            this.btnAddContact.Size = new System.Drawing.Size(117, 39);
             this.btnAddContact.TabIndex = 5;
             this.btnAddContact.Text = "Nuevo Contacto";
             this.btnAddContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -397,6 +396,7 @@ namespace Mono.Sms
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // herramientasToolStripMenuItem
             // 
@@ -446,6 +446,7 @@ namespace Mono.Sms
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(71, 26);
             this.toolStripButton1.Text = "Historial";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
             // 

@@ -78,8 +78,8 @@ namespace Mono.Sms
         {
             Sender sndr = new Sender();
 
-            int codeArea = Convert.ToInt32(txtAreaCode.Text);
-            int number = Convert.ToInt32(txtNumber.Text);
+            string codeArea = txtAreaCode.Text;
+            string number = txtNumber.Text;
 
             //All it's ok, then Send the Message.
 
@@ -247,6 +247,17 @@ namespace Mono.Sms
 
         private void lv_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Historial frm = new Historial();
+            frm.ShowDialog();
         }
     }
 }

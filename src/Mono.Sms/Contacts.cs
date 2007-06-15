@@ -26,19 +26,22 @@ namespace Mono.Sms
         {
             InitializeComponent();
 
-            if (Contact == null)
-            {Contact = new Contact();}
+            //if (Contact == null)
+            //{Contact = new Contact();}
         }
 
 
         private void Contacts_Load(object sender, EventArgs e)
         {
-            txtAreaCode.Text = contact.Number.CodeArea.ToString();
-            txtNumber.Text = contact.Number.Number.ToString();
-            txtName.Text = contact.Name.ToString();
 
-            cmbProviders.SetProvider(contact.ProviderName);
-            
+            if (Contact != null)
+            {
+                txtAreaCode.Text = contact.Number.CodeArea.ToString();
+                txtNumber.Text = contact.Number.Number.ToString();
+                txtName.Text = contact.Name.ToString();
+
+                cmbProviders.SetProvider(contact.ProviderName);
+            }
         }
 
 
@@ -72,7 +75,7 @@ namespace Mono.Sms
             Contact _contact = new Contact();
 
             _contact.Name = txtName.Text;
-            _contact.Number = new CelNumber(Convert.ToInt32(txtAreaCode.Text), Convert.ToInt32(txtNumber.Text));
+            _contact.Number = new CelNumber(txtAreaCode.Text, txtNumber.Text);
             _contact.ProviderName = cmbProviders.Text;
 
             return _contact;
