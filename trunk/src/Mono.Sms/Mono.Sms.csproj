@@ -80,6 +80,7 @@
     <Compile Include="Core\MailSender.cs" />
     <Compile Include="Core\Operation.cs" />
     <Compile Include="Core\Provider\PersonalProvider.cs" />
+    <Compile Include="Core\SmtpServers.cs" />
     <Compile Include="Core\UI\ContactsListView.cs">
       <SubType>Component</SubType>
     </Compile>

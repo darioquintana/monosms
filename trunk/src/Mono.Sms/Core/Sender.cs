@@ -1,6 +1,7 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
+using Mono.Sms.Core.Cfg;
 using Mono.Sms.Core.Provider;
 
 namespace Mono.Sms.Core
@@ -26,8 +27,8 @@ namespace Mono.Sms.Core
         private Result SendMail(IProvider provider)
         {
             IMailSender mailsender = IoC.Instance.Resolve<IMailSender>();
-            
-            mailsender.From = 
+            mailsender.SmtpServer = Settings.Instance.SmtpServer;
+            mailsender.From = Settings.Instance.UserEmail;
             mailsender.To =
                 string.Format("{0}{1}{2}", provider.CelNumber.CodeArea, provider.CelNumber.Number, provider.Domain);
             mailsender.Message = provider.Message;

@@ -31,8 +31,8 @@ namespace Mono.Sms
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbtParticular = new System.Windows.Forms.RadioButton();
+            this.rbtISP = new System.Windows.Forms.RadioButton();
             this.cboISP = new System.Windows.Forms.ComboBox();
             this.txtSmtp = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -46,27 +46,29 @@ namespace Mono.Sms
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(480, 145);
+            this.btnAceptar.Location = new System.Drawing.Point(452, 105);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(561, 145);
+            this.btnCancelar.Location = new System.Drawing.Point(533, 105);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbtParticular);
+            this.groupBox1.Controls.Add(this.rbtISP);
             this.groupBox1.Controls.Add(this.cboISP);
             this.groupBox1.Controls.Add(this.txtSmtp);
             this.groupBox1.Location = new System.Drawing.Point(308, 12);
@@ -76,27 +78,29 @@ namespace Mono.Sms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Servidor Smtp";
             // 
-            // radioButton2
+            // rbtParticular
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(29, 54);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(69, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Particular";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtParticular.AutoSize = true;
+            this.rbtParticular.Location = new System.Drawing.Point(29, 54);
+            this.rbtParticular.Name = "rbtParticular";
+            this.rbtParticular.Size = new System.Drawing.Size(69, 17);
+            this.rbtParticular.TabIndex = 3;
+            this.rbtParticular.TabStop = true;
+            this.rbtParticular.Text = "Particular";
+            this.rbtParticular.UseVisualStyleBackColor = true;
+            this.rbtParticular.CheckedChanged += new System.EventHandler(this.rbtParticular_CheckedChanged);
             // 
-            // radioButton1
+            // rbtISP
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 27);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(42, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ISP";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtISP.AutoSize = true;
+            this.rbtISP.Location = new System.Drawing.Point(29, 27);
+            this.rbtISP.Name = "rbtISP";
+            this.rbtISP.Size = new System.Drawing.Size(42, 17);
+            this.rbtISP.TabIndex = 3;
+            this.rbtISP.TabStop = true;
+            this.rbtISP.Text = "ISP";
+            this.rbtISP.UseVisualStyleBackColor = true;
+            this.rbtISP.CheckedChanged += new System.EventHandler(this.rbtISP_CheckedChanged);
             // 
             // cboISP
             // 
@@ -105,6 +109,7 @@ namespace Mono.Sms
             this.cboISP.Name = "cboISP";
             this.cboISP.Size = new System.Drawing.Size(193, 21);
             this.cboISP.TabIndex = 2;
+            this.cboISP.SelectedIndexChanged += new System.EventHandler(this.cboISP_SelectedIndexChanged);
             // 
             // txtSmtp
             // 
@@ -164,13 +169,16 @@ namespace Mono.Sms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(648, 178);
+            this.ClientSize = new System.Drawing.Size(648, 135);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConfiguration";
             this.Text = "Configuración de Mono.Sms";
+            this.Load += new System.EventHandler(this.frmConfiguration_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -185,8 +193,8 @@ namespace Mono.Sms
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSmtp;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbtParticular;
+        private System.Windows.Forms.RadioButton rbtISP;
         private System.Windows.Forms.ComboBox cboISP;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtUserName;
