@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Mono.Sms.Core;
+using Mono.Sms.Core.Cfg;
 using Mono.Sms.Core.Provider;
 
 namespace Mono.Sms
@@ -13,7 +14,7 @@ namespace Mono.Sms
         {
             InitializeComponent();
 
-            AsignDelegateAtTextBox();
+            //AsignDelegateAtTextBox();
         }
 
         private IProvider currentProvider;
@@ -27,9 +28,30 @@ namespace Mono.Sms
 
         private void Main_Load(object sender, EventArgs e)
         {
+            txtFrom.Text = Settings.Instance.UserName;
+
+            ControlsVisibility(false);
+            
             AsignDelegateAtTextBox();
 
             LoadContacts();
+        }
+
+        private void ControlsVisibility(bool _bool)
+        {
+            this.txtFrom.Visible = _bool;
+            this.txtMessage.Visible = _bool;
+            this.btnSend.Visible = _bool;
+            this.btnClean.Visible = _bool;
+            this.txtAreaCode.Visible = _bool;
+            this.txtNumber.Visible = _bool;
+            lblQuince.Visible = _bool;
+            lblZero.Visible = _bool;
+            lblEmpresa.Visible = _bool;
+            lblCount.Visible = _bool;
+            lblDe.Visible = _bool;
+            
+            
         }
 
         private void AsignDelegateAtTextBox()
@@ -82,7 +104,7 @@ namespace Mono.Sms
             string number = txtNumber.Text;
 
             //All it's ok, then Send the Message.
-
+            
             CurrentProvider.Message = string.Concat("De ", txtFrom.Text, ": ", txtMessage.Text);
             CurrentProvider.CelNumber = new CelNumber(codeArea, number);
             Result res = sndr.Send(CurrentProvider);
@@ -109,21 +131,23 @@ namespace Mono.Sms
             {
                 return false;
             }
+
+            if (this.CurrentProvider == null)
+            {
+                MessageBox.Show("Selecciona arriba un proveedor de mensajes");
+                return false;
+            }
+
             return true;
         }
 
         private void txtMessage_TextChanged(object sender, EventArgs e)
         {
-            int length = txtMessage.Text.Length + txtFrom.Text.Length;
-
-
-            if (this.CurrentProvider == null)
-            {
-                MessageBox.Show("Selecciona arriba un proveedor de mensajes");
-                return;
-            }
+            if (this.CurrentProvider == null) return;
 
             MaximumAllowed = CurrentProvider.NumberOfCharacters;
+
+            int length = txtMessage.Text.Length + txtFrom.Text.Length;
 
             lblCount.Text = (MaximumAllowed - length).ToString();
 
@@ -151,6 +175,8 @@ namespace Mono.Sms
         private void cmbProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.CurrentProvider = cmbProviders.SelectedItem as IProvider;
+
+            ControlsVisibility(true);
         }
 
         private void btnClean_Click(object sender, EventArgs e)
@@ -258,6 +284,23 @@ namespace Mono.Sms
         {
             Historial frm = new Historial();
             frm.ShowDialog();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            frmConfiguration frm = new frmConfiguration();
+            frm.ShowDialog();
+        }
+
+        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConfiguration frm = new frmConfiguration();
+            frm.ShowDialog();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.Instance.SaveState();
         }
     }
 }

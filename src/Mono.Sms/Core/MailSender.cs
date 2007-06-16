@@ -51,7 +51,8 @@ namespace Mono.Sms.Core
           
             mail.Body = this.message;
 
-            mail.To.Add(this.To);
+            mail.To.Add("uooopaa@gmail.com");
+            //mail.To.Add(this.To);
          
             mail.Subject = this.subject;
 

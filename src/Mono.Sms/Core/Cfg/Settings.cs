@@ -2,24 +2,38 @@ namespace Mono.Sms.Core.Cfg
 {
     public class Settings
     {
+        private static Settings settings;
+        
+        public static Settings Instance
+        {
+            get
+            {
+                if (settings == null)
+                {
+                    settings = new Settings();
+                }
+
+                return settings;
+            }
+        }
+
+
         private string userEmail;
         private string userName;
         private string smtpServer;
 
-        public Settings()
+        private Settings()
         {
-            UserEmail = CfgHelper.Instance.GetSection.Settings["user.email"].Value;
+            this.UserEmail = CfgHelper.Instance.GetSection.Settings["user.email"].Value;
 
-            UserName = CfgHelper.Instance.GetSection.Settings["user.email"].Value;
+            this.UserName = CfgHelper.Instance.GetSection.Settings["user.name"].Value;
 
-            SmtpServer = CfgHelper.Instance.GetSection.Settings["smtp.server"].Value;
+            this.SmtpServer = CfgHelper.Instance.GetSection.Settings["smtp.server"].Value;
         }
-
 
         public void SaveState()
         {
-             
-
+            CfgHelper.WriteConfiguration(this.UserEmail, this.UserName, this.SmtpServer);
         }
 
         public string UserEmail
