@@ -42,7 +42,7 @@ namespace Mono.Sms
             this.lblEmpresa = new System.Windows.Forms.Label();
             this.lblDe = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
-            this.gpContactos = new System.Windows.Forms.GroupBox();
+            this.gbContactos = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.btnEditContact = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@ namespace Mono.Sms
             this.txtAreaCode = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
             this.txtNumber = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
             this.gbMensaje.SuspendLayout();
-            this.gpContactos.SuspendLayout();
+            this.gbContactos.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -134,7 +134,7 @@ namespace Mono.Sms
             this.gbMensaje.Controls.Add(this.txtFrom);
             this.gbMensaje.Location = new System.Drawing.Point(12, 57);
             this.gbMensaje.Name = "gbMensaje";
-            this.gbMensaje.Size = new System.Drawing.Size(355, 299);
+            this.gbMensaje.Size = new System.Drawing.Size(355, 287);
             this.gbMensaje.TabIndex = 5;
             this.gbMensaje.TabStop = false;
             this.gbMensaje.Text = "Mensaje";
@@ -196,20 +196,20 @@ namespace Mono.Sms
             this.txtFrom.TabIndex = 3;
             this.txtFrom.TextChanged += new System.EventHandler(this.txtMessage_TextChanged);
             // 
-            // gpContactos
+            // gbContactos
             // 
-            this.gpContactos.Controls.Add(this.txtSearch);
-            this.gpContactos.Controls.Add(this.lv);
-            this.gpContactos.Controls.Add(this.btnEditContact);
-            this.gpContactos.Controls.Add(this.btnChView);
-            this.gpContactos.Controls.Add(this.btnRemoveContact);
-            this.gpContactos.Controls.Add(this.btnAddContact);
-            this.gpContactos.Location = new System.Drawing.Point(373, 57);
-            this.gpContactos.Name = "gpContactos";
-            this.gpContactos.Size = new System.Drawing.Size(357, 299);
-            this.gpContactos.TabIndex = 6;
-            this.gpContactos.TabStop = false;
-            this.gpContactos.Text = "Contactos";
+            this.gbContactos.Controls.Add(this.txtSearch);
+            this.gbContactos.Controls.Add(this.lv);
+            this.gbContactos.Controls.Add(this.btnEditContact);
+            this.gbContactos.Controls.Add(this.btnChView);
+            this.gbContactos.Controls.Add(this.btnRemoveContact);
+            this.gbContactos.Controls.Add(this.btnAddContact);
+            this.gbContactos.Location = new System.Drawing.Point(373, 57);
+            this.gbContactos.Name = "gbContactos";
+            this.gbContactos.Size = new System.Drawing.Size(357, 287);
+            this.gbContactos.TabIndex = 6;
+            this.gbContactos.TabStop = false;
+            this.gbContactos.Text = "Contactos";
             // 
             // txtSearch
             // 
@@ -270,7 +270,7 @@ namespace Mono.Sms
             this.btnAddContact.Image = ((System.Drawing.Image)(resources.GetObject("btnAddContact.Image")));
             this.btnAddContact.Location = new System.Drawing.Point(6, 250);
             this.btnAddContact.Name = "btnAddContact";
-            this.btnAddContact.Size = new System.Drawing.Size(117, 39);
+            this.btnAddContact.Size = new System.Drawing.Size(117, 30);
             this.btnAddContact.TabIndex = 5;
             this.btnAddContact.Text = "Nuevo Contacto";
             this.btnAddContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -282,7 +282,7 @@ namespace Mono.Sms
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1});
-            this.statusStrip.Location = new System.Drawing.Point(0, 362);
+            this.statusStrip.Location = new System.Drawing.Point(0, 349);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(742, 22);
             this.statusStrip.TabIndex = 7;
@@ -361,6 +361,7 @@ namespace Mono.Sms
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // Barra
             // 
@@ -468,24 +469,24 @@ namespace Mono.Sms
             // Main
             // 
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(742, 384);
+            this.ClientSize = new System.Drawing.Size(742, 371);
             this.Controls.Add(this.Barra);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.gpContactos);
+            this.Controls.Add(this.gbContactos);
             this.Controls.Add(this.gbMensaje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mono.Sms";
+            this.Text = "Mono.Sms - Preview Version";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.gbMensaje.ResumeLayout(false);
             this.gbMensaje.PerformLayout();
-            this.gpContactos.ResumeLayout(false);
-            this.gpContactos.PerformLayout();
+            this.gbContactos.ResumeLayout(false);
+            this.gbContactos.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -509,7 +510,7 @@ namespace Mono.Sms
         private System.Windows.Forms.TextBox txtFrom;
         private System.Windows.Forms.Label lblEmpresa;
         private System.Windows.Forms.Label lblDe;
-        private System.Windows.Forms.GroupBox gpContactos;
+        private System.Windows.Forms.GroupBox gbContactos;
         private ContactsListView lv;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;

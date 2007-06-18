@@ -5,6 +5,7 @@ namespace Mono.Sms.Core
         private string message;
         private string error = null;
 
+
         #region ctor
         public Result(string message, string error)
         {
@@ -32,6 +33,14 @@ namespace Mono.Sms.Core
         {
             get { return error; }
             set { error = value; }
+        }
+
+        public bool IsError
+        {
+            get
+            {
+                return !(this.Error == null) ;
+            }
         }
     }
 }
