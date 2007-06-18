@@ -177,6 +177,7 @@ namespace Mono.Sms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConfiguration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuración de Mono.Sms";
             this.Load += new System.EventHandler(this.frmConfiguration_Load);
             this.groupBox1.ResumeLayout(false);

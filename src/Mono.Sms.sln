@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Sms", "Mono.Sms\Mono.Sms.csproj", "{364BB22F-F857-475C-A44A-FF149D6929A0}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Mono.Sms.Setup", "Mono.Sms.Setup\Mono.Sms.Setup.vdproj", "{56D52DBB-6CE6-44A3-A0EC-0C2AC4C88493}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,8 @@ Global
 		{364BB22F-F857-475C-A44A-FF149D6929A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{364BB22F-F857-475C-A44A-FF149D6929A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{364BB22F-F857-475C-A44A-FF149D6929A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D52DBB-6CE6-44A3-A0EC-0C2AC4C88493}.Debug|Any CPU.ActiveCfg = Debug
+		{56D52DBB-6CE6-44A3-A0EC-0C2AC4C88493}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -31,7 +31,7 @@ namespace Mono.Sms
             txtFrom.Text = Settings.Instance.UserName;
 
             ControlsVisibility(false);
-            
+
             AsignDelegateAtTextBox();
 
             LoadContacts();
@@ -50,8 +50,6 @@ namespace Mono.Sms
             lblEmpresa.Visible = _bool;
             lblCount.Visible = _bool;
             lblDe.Visible = _bool;
-            
-            
         }
 
         private void AsignDelegateAtTextBox()
@@ -89,11 +87,31 @@ namespace Mono.Sms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (!ValidateSent()) return;
+
+            GroupBoxEnabled(false);
+            Cursor = Cursors.WaitCursor;
+
+            if (!ValidateSent())
+            {
+                GroupBoxEnabled(true);
+                Cursor = Cursors.Arrow;
+                return;
+            }
 
             toolStripProgressBar1.Visible = true;
 
             Enviar();
+
+            GroupBoxEnabled(true);
+            Cursor = Cursors.Arrow;
+        }
+
+
+        void GroupBoxEnabled(bool _enabled)
+        {
+            this.gbMensaje.Enabled = _enabled;
+            this.gbContactos.Enabled = _enabled;
+            
         }
 
         private void Enviar()
@@ -104,19 +122,64 @@ namespace Mono.Sms
             string number = txtNumber.Text;
 
             //All it's ok, then Send the Message.
-            
+
             CurrentProvider.Message = string.Concat("De ", txtFrom.Text, ": ", txtMessage.Text);
             CurrentProvider.CelNumber = new CelNumber(codeArea, number);
             Result res = sndr.Send(CurrentProvider);
 
-            MessageBox.Show(string.Format(res.Message + " " + res.Error), "Mono.Sms", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+            if (res.IsError)
+            {
+                MessageBox.Show(string.Format("{0}.\r\n{1}", res.Message, res.Error), "Mono.Sms", MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show(string.Format("{0}.\r\n{1}",res.Message,res.Error), "Mono.Sms", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+
 
             toolStripProgressBar1.Visible = false;
         }
 
         private bool ValidateSent()
         {
+            int codigoArea;
+            int numeroCelular;
+
+            if (int.TryParse(txtAreaCode.Text, out codigoArea))
+            {
+                if (codigoArea == 0)
+                {
+                    MessageBox.Show("Debe ingresar un código de area", "Mono.Sms", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un código de area", "Mono.Sms", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if (int.TryParse(txtNumber.Text, out numeroCelular))
+            {
+                if (numeroCelular == 0)
+                {
+                    MessageBox.Show("Debe ingresar un número de celular", "Mono.Sms", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un código de area", "Mono.Sms", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+
             if (Convert.ToInt32(lblCount.Text) < 0) //Check max length of message
             {
                 MessageBox.Show(
@@ -125,6 +188,7 @@ namespace Mono.Sms
                         CurrentProvider.NumberOfCharacters, CurrentProvider.Name));
                 return false;
             }
+
 
             //Message and From no empty
             if (txtFrom.Text.Trim() == string.Empty && txtMessage.Text.Trim() == string.Empty)
@@ -216,7 +280,7 @@ namespace Mono.Sms
         private void btnRemoveContact_Click(object sender, EventArgs e)
         {
             if (Agenda.RemoveContact(lv.GetSelectedContact()))
-                MessageBox.Show("El contacto fue eliminado");
+                MessageBox.Show("El contacto fue eliminado","Mono.Sms",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
             LoadContacts();
         }
@@ -301,6 +365,12 @@ namespace Mono.Sms
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Instance.SaveState();
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AcercaDe frm = new AcercaDe();
+            frm.ShowDialog();
         }
     }
 }
