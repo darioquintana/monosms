@@ -17,7 +17,7 @@ namespace Mono.Sms.Core.UI
             ListView.SelectedListViewItemCollection items;
             items = this.SelectedItems;
 
-            if (items[0] == null) return null;
+            if (items.Count == 0) return null;
 
             Contact contact = new Contact();
             contact.Name = items[0].Text;
