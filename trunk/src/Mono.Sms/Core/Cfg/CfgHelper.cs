@@ -61,9 +61,14 @@ namespace Mono.Sms.Core.Cfg
 
         private static Configuration GetConfiguration(string fileName)
         {
-            return
-                ConfigurationManager.OpenMappedExeConfiguration(GetExeConfigurationFileMap(fileName),
-                                                                ConfigurationUserLevel.None);
+            //Not implemented in Mono Framework
+            //return
+            //  ConfigurationManager.OpenMappedExeConfiguration(GetExeConfigurationFileMap(fileName),
+            //                                                  ConfigurationUserLevel.None);
+
+            //for this reason I use this.
+            return ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+              
         }
 
         private static ExeConfigurationFileMap GetExeConfigurationFileMap(string fileName)

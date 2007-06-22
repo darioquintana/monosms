@@ -80,7 +80,7 @@ namespace Mono.Sms
             // 
             // rbtParticular
             // 
-            this.rbtParticular.AutoSize = true;
+            //this.rbtParticular.AutoSize = true;
             this.rbtParticular.Location = new System.Drawing.Point(29, 54);
             this.rbtParticular.Name = "rbtParticular";
             this.rbtParticular.Size = new System.Drawing.Size(69, 17);
@@ -92,7 +92,7 @@ namespace Mono.Sms
             // 
             // rbtISP
             // 
-            this.rbtISP.AutoSize = true;
+            //this.rbtISP.AutoSize = true;
             this.rbtISP.Location = new System.Drawing.Point(29, 27);
             this.rbtISP.Name = "rbtISP";
             this.rbtISP.Size = new System.Drawing.Size(42, 17);
@@ -133,7 +133,7 @@ namespace Mono.Sms
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            //this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(33, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
@@ -142,7 +142,7 @@ namespace Mono.Sms
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            //this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
@@ -167,7 +167,7 @@ namespace Mono.Sms
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(648, 135);
             this.Controls.Add(this.groupBox2);

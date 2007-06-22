@@ -9,7 +9,6 @@ namespace Mono.Sms.Core.UI
     {
         public ContactsListView():base()
         {
-            
         }
         
         public Contact GetSelectedContact()

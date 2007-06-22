@@ -32,8 +32,10 @@ namespace Mono.Sms
                 cboISP.Items.Add(pair);
             }
 
+            //This do not work in Mono yet.
             cboISP.DisplayMember = "Key";
             cboISP.ValueMember = "Value";
+            //end
 
             if (smtpServers.ContainsValue(settings.SmtpServer))
             {
@@ -55,7 +57,6 @@ namespace Mono.Sms
                 cboISP.Text = string.Empty;
                 txtSmtp.ReadOnly = false;
                 txtSmtp.Text = settings.SmtpServer;
-
             }
         }
 
@@ -64,7 +65,7 @@ namespace Mono.Sms
             settings.UserEmail = this.txtMail.Text;
             settings.UserName = this.txtUserName.Text;
             settings.SmtpServer = this.txtSmtp.Text;
-                       
+
             this.Close();
         }
 
@@ -75,20 +76,15 @@ namespace Mono.Sms
 
         private void cboISP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string smtpName = cboISP.Text;
-
-            txtSmtp.Text = smtpServers[smtpName];
+            KeyValuePair<string, string> pair = (KeyValuePair<string, string>) cboISP.SelectedItem;
+            txtSmtp.Text = smtpServers[pair.Key];
             rbtISP.Checked = true;
             txtSmtp.ReadOnly = true;
-          
-
         }
 
         private void rbtISP_CheckedChanged(object sender, EventArgs e)
         {
-            
             txtSmtp.ReadOnly = true;
-
         }
 
         private void rbtParticular_CheckedChanged(object sender, EventArgs e)

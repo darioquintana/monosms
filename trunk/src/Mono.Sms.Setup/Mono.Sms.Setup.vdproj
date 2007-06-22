@@ -21,32 +21,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5E588AC9F2A7930CFA042FD0BD09FEB9"
+        "MsmKey" = "8:_4682DC0A0256B0643C7FA8428476BFD2"
         "OwnerKey" = "8:_B89D5CF63CBF4ADAA56F7EB8496016A5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5E588AC9F2A7930CFA042FD0BD09FEB9"
+        "MsmKey" = "8:_4682DC0A0256B0643C7FA8428476BFD2"
         "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D8340FE18C635C33C7D33054D4B0E9A"
+        "MsmKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
         "OwnerKey" = "8:_B89D5CF63CBF4ADAA56F7EB8496016A5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D8340FE18C635C33C7D33054D4B0E9A"
+        "MsmKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
         "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D8340FE18C635C33C7D33054D4B0E9A"
-        "OwnerKey" = "8:_BE1FEA3A8B07C14C51782A86BCD5853A"
+        "MsmKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
+        "OwnerKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,18 +63,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BE1FEA3A8B07C14C51782A86BCD5853A"
-        "OwnerKey" = "8:_B89D5CF63CBF4ADAA56F7EB8496016A5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE1FEA3A8B07C14C51782A86BCD5853A"
-        "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CB0551323B0348E08A675C9D204A6EB1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -87,13 +75,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8D8340FE18C635C33C7D33054D4B0E9A"
+        "MsmKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
+        "OwnerKey" = "8:_B89D5CF63CBF4ADAA56F7EB8496016A5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
         "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -106,13 +94,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BE1FEA3A8B07C14C51782A86BCD5853A"
+        "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5E588AC9F2A7930CFA042FD0BD09FEB9"
+        "OwnerKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4682DC0A0256B0643C7FA8428476BFD2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -133,6 +133,17 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
         }
         "Release"
         {
@@ -149,6 +160,17 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
         }
     }
     "Deployable"
@@ -209,14 +231,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5E588AC9F2A7930CFA042FD0BD09FEB9"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4682DC0A0256B0643C7FA8428476BFD2"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5E588AC9F2A7930CFA042FD0BD09FEB9"
+                    "_4682DC0A0256B0643C7FA8428476BFD2"
                     {
                     "Name" = "8:Castle.DynamicProxy.dll"
                     "Attributes" = "3:512"
@@ -240,14 +262,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8D8340FE18C635C33C7D33054D4B0E9A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8A163647BA7B377655FCDF9CF5C2E1E2"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Castle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8D8340FE18C635C33C7D33054D4B0E9A"
+                    "_8A163647BA7B377655FCDF9CF5C2E1E2"
                     {
                     "Name" = "8:Castle.Core.dll"
                     "Attributes" = "3:512"
@@ -291,37 +313,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BE1FEA3A8B07C14C51782A86BCD5853A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Castle.MicroKernel, Version=1.0.0.2, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_BE1FEA3A8B07C14C51782A86BCD5853A"
-                    {
-                    "Name" = "8:Castle.MicroKernel.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Castle.MicroKernel.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB0551323B0348E08A675C9D204A6EB1"
             {
             "SourcePath" = "8:..\\Mono.Sms\\files\\creditos.rtf"
@@ -360,6 +351,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E1EEE97F55A8A1AF630BEE36A12D34F8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Castle.MicroKernel, Version=1.0.0.2, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E1EEE97F55A8A1AF630BEE36A12D34F8"
+                    {
+                    "Name" = "8:Castle.MicroKernel.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Castle.MicroKernel.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
