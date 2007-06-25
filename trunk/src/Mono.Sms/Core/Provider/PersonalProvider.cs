@@ -41,12 +41,7 @@ namespace Mono.Sms.Core.Provider
                     .Replace(char.Parse("ó"), char.Parse("o"))
                     .Replace(char.Parse("ú"), char.Parse("u"))
                     .Replace(char.Parse("ñ"), char.Parse("n"));
-                    
-                    //.Replace("%", "%25")
-                    //.Replace("&", "	%26")
-                    //.Replace("/", "%2F");
                 
-                //messageUrlFormated = HttpUtility.UrlPathEncode(messageUrlFormated);
                 messageUrlFormated = HttpUtility.UrlEncode(messageUrlFormated);
                 
                 messageUrlFormated = messageUrlFormated.Replace("\r\n", "%0D%0A");
