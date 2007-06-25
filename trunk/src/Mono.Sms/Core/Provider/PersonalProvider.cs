@@ -26,12 +26,21 @@ namespace Mono.Sms.Core.Provider
             {
                 //string messageUrlFormated = HttpUtility.UrlEncode(this.Message);
                 string messageUrlFormated = Message
-                    .Replace('á', 'a')
-                    .Replace('é', 'e')
-                    .Replace('í', 'i')
-                    .Replace('ó', 'o')
-                    .Replace('ú', 'u')
-                    .Replace('ñ', 'n');
+                    
+                    //Esto no anda en Mono/Linux
+                    //.Replace('á', 'a')
+                    //.Replace('é', 'e')
+                    //.Replace('í', 'i')
+                    //.Replace('ó', 'o')
+                    //.Replace('ú', 'u')
+                    //.Replace('ñ', 'n');
+
+                    .Replace(char.Parse("á"), char.Parse("a"))
+                    .Replace(char.Parse("é"), char.Parse("e"))
+                    .Replace(char.Parse("í"), char.Parse("i"))
+                    .Replace(char.Parse("ó"), char.Parse("o"))
+                    .Replace(char.Parse("ú"), char.Parse("u"))
+                    .Replace(char.Parse("ñ"), char.Parse("n"));
                     
                     //.Replace("%", "%25")
                     //.Replace("&", "	%26")
