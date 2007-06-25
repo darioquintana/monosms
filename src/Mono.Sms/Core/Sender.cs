@@ -1,6 +1,7 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows.Forms;
 using Mono.Sms.Core.Cfg;
 using Mono.Sms.Core.Provider;
 
@@ -37,6 +38,9 @@ namespace Mono.Sms.Core
         {
             try
             {
+                //debug
+                //MessageBox.Show(string.Format("DataPost en SendPost: {0}",provider.DataPost));
+
                 TcpClient client = new TcpClient(provider.HostName, 80);
 
                 UTF8Encoding enc = new UTF8Encoding();
@@ -51,6 +55,7 @@ namespace Mono.Sms.Core
 
                 client.GetStream().Read(readBuffer, 0, 300);
 
+                //Checkear recepcion de http 200 ok
                 //string leido = enc.GetString(readBuffer, 0, readBuffer.Length);
 
                 return new Result("Se ha enviado correctamente el mensaje");
