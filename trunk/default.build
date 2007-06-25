@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Todo -->
-<project 	name="Mono.Sms" 
-			default="all" 
+<project 	name="Mono.Sms"
+			default="all"
 			xmlns="http://nant.sourceforge.net/release/0.85/nant.xsd"
 			basedir=".">
 
@@ -25,25 +25,25 @@
   <target name="build"  description="compiles the application" depends="clean,init">
 
     <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" >
-      <sources>
 
+      <sources>
         <include name="src/${project::get-name()}/Core/**/*.cs" />
         <include name="src/${project::get-name()}/*.cs" />
-        
+
         <exclude name="src/**/AssemblyInfo.cs" />
 
         <!-- exclude ReSharper stuff -->
         <exclude name="src/${project::get-name()}/**/_ReSharper*/**" />
         <exclude name="src/${project::get-name()}/**/*.resharper" />
-
       </sources>
 
       <references>
         <include name="lib/*.dll" />
       </references>
 
-      <resources>
-        <include name="src/${project::get-name()}/**/*.resx" />
+      <resources dynamicprefix="false" prefix="${project::get-name()}.Resources">
+        <include name="src/${project::get-name()}/**/*.resx"  />
+        <include name="src/${project::get-name()}/Resources/**/*"/>
       </resources>
 
     </csc>
@@ -52,7 +52,6 @@
   <target name="copy" description="make some copies">
 
     <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
-
     <copy file="src/${project::get-name()}/files/contacts.monosms" tofile="${build.dir}/files/contacts.monosms" />
     <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
 
@@ -60,11 +59,11 @@
     <copy todir="${build.dir}/">
       <fileset basedir="lib">
         <include name="*.dll" />
-        <include name="*.xml" />
+        <!--include name="*.xml" /-->
       </fileset>
     </copy>
   </target>
 
- 
+
 
 </project>
