@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Mono.Sms.Core;
 
 namespace Mono.Sms
 {
@@ -15,7 +16,7 @@ namespace Mono.Sms
         {
             linkWeb.Links.Add(0, linkWeb.Text.Length, "http://darioquintana.com.ar/projects/monosms/");
 
-            rtxtReleaseNotes.LoadFile("files/creditos.rtf",RichTextBoxStreamType.RichText);
+            rtxtReleaseNotes.LoadFile(MonoSmsResources.GetResourceStream("creditos.rtf"),RichTextBoxStreamType.RichText);
         }
 
 

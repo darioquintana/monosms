@@ -1,16 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Mono.Sms.Core.UI
 {
-    public class ContactsListView : ListView 
+    public class ContactsListView : ListView
     {
-        public ContactsListView():base()
+        public ContactsListView()
         {
+            ImageList imageList = new ImageList();
+
+            imageList.Images.Add(MonoSmsResources.GetImage("contacto.png"));
+            imageList.ColorDepth = ColorDepth.Depth32Bit;
+            imageList.ImageSize = new Size(22, 22);
+
+            this.LargeImageList = imageList;
+            this.SmallImageList = imageList;
         }
-        
+
         public Contact GetSelectedContact()
         {
             ListView.SelectedListViewItemCollection items;
@@ -20,7 +26,7 @@ namespace Mono.Sms.Core.UI
 
             Contact contact = new Contact();
             contact.Name = items[0].Text;
-            contact.Number = new CelNumber(items[0].SubItems[1].Text,items[0].SubItems[2].Text);
+            contact.Number = new CelNumber(items[0].SubItems[1].Text, items[0].SubItems[2].Text);
             contact.ProviderName = items[0].SubItems[3].Text;
 
             return contact;
@@ -36,6 +42,5 @@ namespace Mono.Sms.Core.UI
 
             this.Items.Add(lvi);
         }
-
     }
 }

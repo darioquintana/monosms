@@ -78,6 +78,7 @@
     <Compile Include="Core\Cfg\MonoSmsSection.cs" />
     <Compile Include="Core\Cfg\Settings.cs" />
     <Compile Include="Core\IMailSender.cs" />
+    <Compile Include="Core\MonoSmsResources.cs" />
     <Compile Include="Core\Provider\BaseProvider.cs" />
     <Compile Include="Core\Contact.cs" />
     <Compile Include="Core\Provider\CtiProvider.cs" />
@@ -133,31 +134,44 @@
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="App.config" />
     <None Include="files\contacts.monosms">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="files\creditos.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="Resources\creditos.rtf">
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\monosmstalking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\borrar.png" />
+    <EmbeddedResource Include="Resources\cancelar.png" />
+    <EmbeddedResource Include="Resources\configuracion.png" />
+    <EmbeddedResource Include="Resources\contacto.png" />
+    <EmbeddedResource Include="Resources\editar.png" />
+    <EmbeddedResource Include="Resources\historial.png" />
+    <EmbeddedResource Include="Resources\mensaje.png" />
+    <EmbeddedResource Include="Resources\nuevocontacto.png" />
+    <EmbeddedResource Include="Resources\salir.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Exception\" />

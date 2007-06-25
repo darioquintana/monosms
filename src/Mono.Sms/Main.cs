@@ -14,7 +14,16 @@ namespace Mono.Sms
         {
             InitializeComponent();
 
-            //AsignDelegateAtTextBox();
+            //Set Images:
+            this.btnSend.Image = MonoSmsResources.GetImage("mensaje.png");
+            this.btnAddContact.Image = MonoSmsResources.GetImage("nuevocontacto.png");
+            this.btnEditContact.Image = MonoSmsResources.GetImage("editar.png");
+            this.btnRemoveContact.Image = MonoSmsResources.GetImage("borrar.png");
+            this.toolStripButtonHistorial.Image = MonoSmsResources.GetImage("historial.png");
+            this.toolStripButtonConfiguraciones.Image = MonoSmsResources.GetImage("configuracion.png");
+            this.salirToolStripMenuItem.Image = MonoSmsResources.GetImage("salir.png");
+            this.configuracionesToolStripMenuItem.Image = MonoSmsResources.GetImage("configuracion.png");
+
         }
 
         private IProvider currentProvider;
