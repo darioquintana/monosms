@@ -9,7 +9,10 @@ namespace Mono.Sms.Core.UI
         {
             ImageList imageList = new ImageList();
 
-            imageList.Images.Add(MonoSmsResources.GetImage("contacto.png"));
+			Image image = MonoSmsResources.GetImage("contacto.png");
+			
+            imageList.Images.Add(image);
+
             imageList.ColorDepth = ColorDepth.Depth32Bit;
             imageList.ImageSize = new Size(22, 22);
 
