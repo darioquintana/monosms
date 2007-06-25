@@ -31,20 +31,26 @@ namespace Mono.Sms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnSend = new System.Windows.Forms.Button();
             this.btnClean = new System.Windows.Forms.Button();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.gbMensaje = new System.Windows.Forms.GroupBox();
+            this.cmbProviders = new Mono.Sms.Core.UI.ComboBoxProviders();
             this.lblQuince = new System.Windows.Forms.Label();
             this.lblZero = new System.Windows.Forms.Label();
+            this.txtAreaCode = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
+            this.txtNumber = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
             this.lblCount = new System.Windows.Forms.Label();
             this.lblEmpresa = new System.Windows.Forms.Label();
             this.lblDe = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
             this.gbContactos = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.lv = new Mono.Sms.Core.UI.ContactsListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.btnEditContact = new System.Windows.Forms.Button();
             this.btnChView = new System.Windows.Forms.Button();
             this.btnRemoveContact = new System.Windows.Forms.Button();
@@ -57,21 +63,12 @@ namespace Mono.Sms
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Barra = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.imageListToolBar = new System.Windows.Forms.ImageList(this.components);
-            this.lv = new Mono.Sms.Core.UI.ContactsListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.cmbProviders = new Mono.Sms.Core.UI.ComboBoxProviders();
-            this.txtAreaCode = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
-            this.txtNumber = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
+            this.toolStripButtonHistorial = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonConfiguraciones = new System.Windows.Forms.ToolStripButton();
             this.gbMensaje.SuspendLayout();
             this.gbContactos.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -83,7 +80,6 @@ namespace Mono.Sms
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Image = ((System.Drawing.Image)(resources.GetObject("btnSend.Image")));
             this.btnSend.Location = new System.Drawing.Point(67, 241);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(223, 39);
@@ -139,6 +135,16 @@ namespace Mono.Sms
             this.gbMensaje.TabStop = false;
             this.gbMensaje.Text = "Mensaje";
             // 
+            // cmbProviders
+            // 
+            this.cmbProviders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProviders.FormattingEnabled = true;
+            this.cmbProviders.Location = new System.Drawing.Point(67, 21);
+            this.cmbProviders.Name = "cmbProviders";
+            this.cmbProviders.Size = new System.Drawing.Size(223, 21);
+            this.cmbProviders.TabIndex = 11;
+            this.cmbProviders.SelectedIndexChanged += new System.EventHandler(this.cmbProviders_SelectedIndexChanged);
+            // 
             // lblQuince
             // 
             this.lblQuince.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,6 +164,24 @@ namespace Mono.Sms
             this.lblZero.TabIndex = 9;
             this.lblZero.Text = "0";
             this.lblZero.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAreaCode
+            // 
+            this.txtAreaCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAreaCode.Location = new System.Drawing.Point(67, 50);
+            this.txtAreaCode.Name = "txtAreaCode";
+            this.txtAreaCode.Size = new System.Drawing.Size(65, 21);
+            this.txtAreaCode.TabIndex = 1;
+            this.txtAreaCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Location = new System.Drawing.Point(176, 50);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(114, 21);
+            this.txtNumber.TabIndex = 2;
+            this.txtNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCount
             // 
@@ -222,16 +246,45 @@ namespace Mono.Sms
             this.txtSearch.Text = "Escribe para buscar...";
             this.txtSearch.Visible = false;
             // 
-            // imageList
+            // lv
             // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "contact.png");
+            this.lv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lv.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv.Location = new System.Drawing.Point(6, 42);
+            this.lv.Name = "lv";
+            this.lv.Size = new System.Drawing.Size(345, 206);
+            this.lv.TabIndex = 0;
+            this.lv.UseCompatibleStateImageBehavior = false;
+            this.lv.View = System.Windows.Forms.View.Details;
+            this.lv.DoubleClick += new System.EventHandler(this.lv_DoubleClick);
+            this.lv.SelectedIndexChanged += new System.EventHandler(this.lv_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Contacto";
+            this.columnHeader1.Width = 108;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Código";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Código";
+            this.columnHeader3.Width = 67;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Proveedor";
+            this.columnHeader4.Width = 70;
             // 
             // btnEditContact
             // 
             this.btnEditContact.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditContact.Image = ((System.Drawing.Image)(resources.GetObject("btnEditContact.Image")));
             this.btnEditContact.Location = new System.Drawing.Point(198, 250);
             this.btnEditContact.Name = "btnEditContact";
             this.btnEditContact.Size = new System.Drawing.Size(67, 30);
@@ -254,7 +307,6 @@ namespace Mono.Sms
             // btnRemoveContact
             // 
             this.btnRemoveContact.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveContact.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveContact.Image")));
             this.btnRemoveContact.Location = new System.Drawing.Point(271, 250);
             this.btnRemoveContact.Name = "btnRemoveContact";
             this.btnRemoveContact.Size = new System.Drawing.Size(80, 30);
@@ -267,7 +319,6 @@ namespace Mono.Sms
             // btnAddContact
             // 
             this.btnAddContact.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddContact.Image = ((System.Drawing.Image)(resources.GetObject("btnAddContact.Image")));
             this.btnAddContact.Location = new System.Drawing.Point(6, 250);
             this.btnAddContact.Name = "btnAddContact";
             this.btnAddContact.Size = new System.Drawing.Size(117, 30);
@@ -326,27 +377,25 @@ namespace Mono.Sms
             // 
             // salirToolStripMenuItem
             // 
-            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // herramientasToolStripMenuItem
             // 
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opcionesToolStripMenuItem});
+            this.configuracionesToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
             // 
-            // opcionesToolStripMenuItem
+            // configuracionesToolStripMenuItem
             // 
-            this.opcionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("opcionesToolStripMenuItem.Image")));
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.opcionesToolStripMenuItem.Text = "Configuraciones...";
-            this.opcionesToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
+            this.configuracionesToolStripMenuItem.Name = "configuracionesToolStripMenuItem";
+            this.configuracionesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.configuracionesToolStripMenuItem.Text = "Configuraciones...";
+            this.configuracionesToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -359,7 +408,7 @@ namespace Mono.Sms
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
@@ -367,104 +416,30 @@ namespace Mono.Sms
             // 
             this.Barra.ImageScalingSize = new System.Drawing.Size(22, 22);
             this.Barra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolStripButtonHistorial,
+            this.toolStripButtonConfiguraciones});
             this.Barra.Location = new System.Drawing.Point(0, 24);
             this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(742, 29);
+            this.Barra.Size = new System.Drawing.Size(742, 25);
             this.Barra.TabIndex = 9;
             this.Barra.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripButtonHistorial
             // 
-            this.toolStripButton1.Enabled = false;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(71, 26);
-            this.toolStripButton1.Text = "Historial";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButtonHistorial.Enabled = false;
+            this.toolStripButtonHistorial.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonHistorial.Name = "toolStripButtonHistorial";
+            this.toolStripButtonHistorial.Size = new System.Drawing.Size(49, 22);
+            this.toolStripButtonHistorial.Text = "Historial";
+            this.toolStripButtonHistorial.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // toolStripButtonConfiguraciones
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(110, 26);
-            this.toolStripButton2.Text = "Configuraciones";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // imageListToolBar
-            // 
-            this.imageListToolBar.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageListToolBar.ImageSize = new System.Drawing.Size(22, 22);
-            this.imageListToolBar.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // lv
-            // 
-            this.lv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.lv.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lv.LargeImageList = this.imageList;
-            this.lv.Location = new System.Drawing.Point(6, 42);
-            this.lv.Name = "lv";
-            this.lv.Size = new System.Drawing.Size(345, 206);
-            this.lv.SmallImageList = this.imageList;
-            this.lv.TabIndex = 0;
-            this.lv.UseCompatibleStateImageBehavior = false;
-            this.lv.View = System.Windows.Forms.View.Details;
-            this.lv.DoubleClick += new System.EventHandler(this.lv_DoubleClick);
-            this.lv.SelectedIndexChanged += new System.EventHandler(this.lv_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Contacto";
-            this.columnHeader1.Width = 108;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Código";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Código";
-            this.columnHeader3.Width = 67;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Proveedor";
-            this.columnHeader4.Width = 70;
-            // 
-            // cmbProviders
-            // 
-            this.cmbProviders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProviders.FormattingEnabled = true;
-            this.cmbProviders.Location = new System.Drawing.Point(67, 21);
-            this.cmbProviders.Name = "cmbProviders";
-            this.cmbProviders.Size = new System.Drawing.Size(223, 21);
-            this.cmbProviders.TabIndex = 11;
-            this.cmbProviders.SelectedIndexChanged += new System.EventHandler(this.cmbProviders_SelectedIndexChanged);
-            // 
-            // txtAreaCode
-            // 
-            this.txtAreaCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAreaCode.Location = new System.Drawing.Point(67, 50);
-            this.txtAreaCode.Name = "txtAreaCode";
-            this.txtAreaCode.Size = new System.Drawing.Size(65, 21);
-            this.txtAreaCode.TabIndex = 1;
-            this.txtAreaCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtNumber
-            // 
-            this.txtNumber.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumber.Location = new System.Drawing.Point(176, 50);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(114, 21);
-            this.txtNumber.TabIndex = 2;
-            this.txtNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolStripButtonConfiguraciones.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonConfiguraciones.Name = "toolStripButtonConfiguraciones";
+            this.toolStripButtonConfiguraciones.Size = new System.Drawing.Size(88, 22);
+            this.toolStripButtonConfiguraciones.Text = "Configuraciones";
+            this.toolStripButtonConfiguraciones.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // Main
             // 
@@ -515,7 +490,6 @@ namespace Mono.Sms
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Button btnEditContact;
         private System.Windows.Forms.Button btnRemoveContact;
         private System.Windows.Forms.Button btnAddContact;
@@ -531,14 +505,13 @@ namespace Mono.Sms
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuracionesToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label lblQuince;
         private System.Windows.Forms.Label lblZero;
         private System.Windows.Forms.ToolStrip Barra;
-        private System.Windows.Forms.ImageList imageListToolBar;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonHistorial;
+        private System.Windows.Forms.ToolStripButton toolStripButtonConfiguraciones;
         private System.Windows.Forms.TextBox txtSearch;
         private ComboBoxProviders cmbProviders;
     }

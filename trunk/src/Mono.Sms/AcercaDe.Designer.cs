@@ -28,15 +28,14 @@ namespace Mono.Sms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AcercaDe));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rtxtReleaseNotes = new System.Windows.Forms.RichTextBox();
+            this.picMonoSms = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.linkWeb = new System.Windows.Forms.LinkLabel();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.rtxtReleaseNotes = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMonoSms)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -44,7 +43,7 @@ namespace Mono.Sms
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.rtxtReleaseNotes);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.picMonoSms);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.linkWeb);
             this.panel1.Controls.Add(this.btnAceptar);
@@ -54,14 +53,23 @@ namespace Mono.Sms
             this.panel1.Size = new System.Drawing.Size(370, 239);
             this.panel1.TabIndex = 10;
             // 
-            // pictureBox1
+            // rtxtReleaseNotes
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 50);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.rtxtReleaseNotes.Location = new System.Drawing.Point(3, 84);
+            this.rtxtReleaseNotes.Name = "rtxtReleaseNotes";
+            this.rtxtReleaseNotes.Size = new System.Drawing.Size(362, 121);
+            this.rtxtReleaseNotes.TabIndex = 16;
+            this.rtxtReleaseNotes.Text = "";
+            // 
+            // picMonoSms
+            // 
+            this.picMonoSms.Location = new System.Drawing.Point(0, 0);
+            this.picMonoSms.Name = "picMonoSms";
+            this.picMonoSms.Size = new System.Drawing.Size(60, 50);
+            this.picMonoSms.TabIndex = 11;
+            this.picMonoSms.TabStop = false;
+            this.picMonoSms.Image = Mono.Sms.Core.MonoSmsResources.GetImage("monosmstalking.png");
+
             // 
             // label2
             // 
@@ -106,18 +114,8 @@ namespace Mono.Sms
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // rtxtReleaseNotes
-            // 
-            this.rtxtReleaseNotes.Location = new System.Drawing.Point(3, 84);
-            this.rtxtReleaseNotes.Name = "rtxtReleaseNotes";
-            this.rtxtReleaseNotes.Size = new System.Drawing.Size(362, 121);
-            this.rtxtReleaseNotes.TabIndex = 16;
-            this.rtxtReleaseNotes.Text = "";
-            // 
             // AcercaDe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(370, 239);
             this.Controls.Add(this.panel1);
@@ -128,7 +126,7 @@ namespace Mono.Sms
             this.Text = "Acerca de Mono.Sms";
             this.Load += new System.EventHandler(this.AcercaDe_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMonoSms)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,7 +134,7 @@ namespace Mono.Sms
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picMonoSms;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkWeb;
         private System.Windows.Forms.Button btnAceptar;

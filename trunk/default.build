@@ -54,8 +54,6 @@
     <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
 
     <copy file="src/${project::get-name()}/files/contacts.monosms" tofile="${build.dir}/files/contacts.monosms" />
-    <copy file="src/${project::get-name()}/files/creditos.rtf" tofile="${build.dir}/files/creditos.rtf" />
-   
     <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
 
     <!-- copy the references -->
