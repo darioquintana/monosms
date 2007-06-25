@@ -24,26 +24,26 @@
 
   <target name="build"  description="compiles the application" depends="clean,init">
 
-    <csc target="winexe" output="${build.dir}\${project::get-name()}.exe" debug="${debug}" >
+    <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" >
       <sources>
 
-        <include name="src\${project::get-name()}\Core\**\*.cs" />
-        <include name="src\${project::get-name()}\*.cs" />
+        <include name="src/${project::get-name()}/Core/**/*.cs" />
+        <include name="src/${project::get-name()}/*.cs" />
         
-        <exclude name="src\**\AssemblyInfo.cs" />
+        <exclude name="src/**/AssemblyInfo.cs" />
 
         <!-- exclude ReSharper stuff -->
-        <exclude name="src\${project::get-name()}\**\_ReSharper*\**" />
-        <exclude name="src\${project::get-name()}\**\*.resharper" />
+        <exclude name="src/${project::get-name()}/**/_ReSharper*/**" />
+        <exclude name="src/${project::get-name()}/**/*.resharper" />
 
       </sources>
 
       <references>
-        <include name="lib\*.dll" />
+        <include name="lib/*.dll" />
       </references>
 
       <resources>
-        <include name="src\${project::get-name()}\**\*.resx" />
+        <include name="src/${project::get-name()}/**/*.resx" />
       </resources>
 
     </csc>
@@ -51,15 +51,15 @@
 
   <target name="copy" description="make some copies">
 
-    <copy file="src\${project::get-name()}\App.config" tofile="${build.dir}\${project::get-name()}.exe.config" if="${file::exists('src\Mono.Sms\App.config')}"/>
+    <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
 
-    <copy file="src\${project::get-name()}\files\contacts.monosms" tofile="${build.dir}\files\contacts.monosms" />
-    <copy file="src\${project::get-name()}\files\creditos.rtf" tofile="${build.dir}\files\creditos.rtf" />
+    <copy file="src/${project::get-name()}/files/contacts.monosms" tofile="${build.dir}/files/contacts.monosms" />
+    <copy file="src/${project::get-name()}/files/creditos.rtf" tofile="${build.dir}/files/creditos.rtf" />
    
-    <!--copy file="files\licence.htm" tofile="${build.dir}\licence.htm" /-->
+    <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
 
     <!-- copy the references -->
-    <copy todir="${build.dir}\">
+    <copy todir="${build.dir}/">
       <fileset basedir="lib">
         <include name="*.dll" />
         <include name="*.xml" />
