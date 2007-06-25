@@ -23,7 +23,6 @@ namespace Mono.Sms
             this.toolStripButtonConfiguraciones.Image = MonoSmsResources.GetImage("configuracion.png");
             this.salirToolStripMenuItem.Image = MonoSmsResources.GetImage("salir.png");
             this.configuracionesToolStripMenuItem.Image = MonoSmsResources.GetImage("configuracion.png");
-
         }
 
         private IProvider currentProvider;
@@ -96,7 +95,6 @@ namespace Mono.Sms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-
             GroupBoxEnabled(false);
             Cursor = Cursors.WaitCursor;
 
@@ -116,11 +114,10 @@ namespace Mono.Sms
         }
 
 
-        void GroupBoxEnabled(bool _enabled)
+        private void GroupBoxEnabled(bool _enabled)
         {
             this.gbMensaje.Enabled = _enabled;
             this.gbContactos.Enabled = _enabled;
-            
         }
 
         private void Enviar()
@@ -139,11 +136,11 @@ namespace Mono.Sms
             if (res.IsError)
             {
                 MessageBox.Show(string.Format("{0}.\r\n{1}", res.Message, res.Error), "Mono.Sms", MessageBoxButtons.OK,
-                             MessageBoxIcon.Error);
+                                MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show(string.Format("{0}.\r\n{1}",res.Message,res.Error), "Mono.Sms", MessageBoxButtons.OK,
+                MessageBox.Show(string.Format("{0}.\r\n{1}", res.Message, res.Error), "Mono.Sms", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
             }
 
@@ -277,19 +274,43 @@ namespace Mono.Sms
         {
             Contacts frm = new Contacts();
             frm.Operation = Operation.Add;
-            frm.ContactsEventHandler += delegate(Contact contact, Operation op)
-                                            {
-                                                Agenda.AddContact(contact);
-                                                LoadContacts();
-                                            };
+
+            //bug en gmcs:
+            //frm.ContactsEventHandler += delegate(Contact contact, Operation op)
+            //                                {
+            //                                    Agenda.AddContact(contact);
+            //                                    LoadContacts();
+            //                                };
+
+            //Uso esto hasta que lo reparen !
+            frm.ContactsEventHandler += AddContact;
 
             frm.ShowDialog();
         }
 
+        //Uso esto hasta que reparen el bug del gmcs
+        private void AddContact(Contact contact, Operation op)
+        {
+            Agenda.AddContact(contact);
+            LoadContacts();
+        }
+
+        //Uso esto hasta que reparen el bug del gmcs
+        private void EditContact(Contact contact, Operation op)
+        {
+            Contact oldContact = lv.GetSelectedContact();
+            if (oldContact == null) return;
+
+            Agenda.UpdateContact(oldContact, contact);
+            LoadContacts();
+        }
+
+
         private void btnRemoveContact_Click(object sender, EventArgs e)
         {
             if (Agenda.RemoveContact(lv.GetSelectedContact()))
-                MessageBox.Show("El contacto fue eliminado","Mono.Sms",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("El contacto fue eliminado", "Mono.Sms", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
 
             LoadContacts();
         }
@@ -301,11 +322,17 @@ namespace Mono.Sms
 
             Contacts frm = new Contacts();
             frm.Operation = Operation.Edit;
-            frm.ContactsEventHandler += delegate(Contact contact, Operation op)
-                                            {
-                                                Agenda.UpdateContact(oldContact, contact);
-                                                LoadContacts();
-                                            };
+
+            //bug en gmcs:
+            //frm.ContactsEventHandler += delegate(Contact contact, Operation op)
+            //                                {
+            //                                    Agenda.UpdateContact(oldContact, contact);
+            //                                    LoadContacts();
+            //                                };
+
+            //Uso esto hasta que lo reparen:
+            frm.ContactsEventHandler += EditContact;
+
             frm.Contact = oldContact;
             frm.ShowDialog();
         }

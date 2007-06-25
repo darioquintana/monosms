@@ -8,10 +8,6 @@ namespace Mono.Sms.Core
 {
     public class Sender
     {
-        public Sender()
-        {
-        }
-
         public Result Send(IProvider provider)
         {
             if (provider.UseSmtp)
@@ -55,7 +51,7 @@ namespace Mono.Sms.Core
 
                 client.GetStream().Read(readBuffer, 0, 300);
 
-                string leido = enc.GetString(readBuffer, 0, readBuffer.Length);
+                //string leido = enc.GetString(readBuffer, 0, readBuffer.Length);
 
                 return new Result("Se ha enviado correctamente el mensaje");
             }
