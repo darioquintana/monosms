@@ -60,8 +60,13 @@ namespace Mono.Sms.Core
             if (stream == null)
             {
                 string fullName = string.Concat(ourNamespace, ".", fileName);
-                
                 stream = ourAssembly.GetManifestResourceStream(fullName);
+                
+                if(stream == null)
+                {
+                	 stream = ourAssembly.GetManifestResourceStream(fileName);                
+                }
+                
 
             }
 
