@@ -24,7 +24,7 @@
 
   <target name="build"  description="compila la aplicacion" depends="clean,init">
 
-    <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" >
+    <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" win32icon="src/${project::get-name()}/Resources/monosmsicon.ico" >
 
       <sources>
         <include name="src/${project::get-name()}/Core/**/*.cs" />
