@@ -276,35 +276,14 @@ namespace Mono.Sms
             frm.Operation = Operation.Add;
 
             //bug en gmcs:
-            //frm.ContactsEventHandler += delegate(Contact contact, Operation op)
-            //                                {
-            //                                    Agenda.AddContact(contact);
-            //                                    LoadContacts();
-            //                                };
-
-            //Uso esto hasta que lo reparen !
-            frm.ContactsEventHandler += AddContact;
-
+            //Dentro de los Metodos anónimos se debe escribir la ruta completa de los tipos.
+            frm.ContactsEventHandler += delegate(Contact contact, Operation op)
+                                            {
+                                                Mono.Sms.Core.Agenda.AddContact(contact);
+                                                LoadContacts();
+                                            };
             frm.ShowDialog();
         }
-
-        //Uso esto hasta que reparen el bug del gmcs
-        private void AddContact(Contact contact, Operation op)
-        {
-            Agenda.AddContact(contact);
-            LoadContacts();
-        }
-
-        //Uso esto hasta que reparen el bug del gmcs
-        private void EditContact(Contact contact, Operation op)
-        {
-            Contact oldContact = lv.GetSelectedContact();
-            if (oldContact == null) return;
-
-            Agenda.UpdateContact(oldContact, contact);
-            LoadContacts();
-        }
-
 
         private void btnRemoveContact_Click(object sender, EventArgs e)
         {
@@ -324,14 +303,12 @@ namespace Mono.Sms
             frm.Operation = Operation.Edit;
 
             //bug en gmcs:
-            //frm.ContactsEventHandler += delegate(Contact contact, Operation op)
-            //                                {
-            //                                    Agenda.UpdateContact(oldContact, contact);
-            //                                    LoadContacts();
-            //                                };
-
-            //Uso esto hasta que lo reparen:
-            frm.ContactsEventHandler += EditContact;
+            //Dentro de los Metodos anónimos se debe escribir la ruta completa de los tipos.
+            frm.ContactsEventHandler += delegate(Contact contact, Operation op)
+                                            {
+                                            	Mono.Sms.Core.Agenda.UpdateContact(oldContact, contact);
+                                                LoadContacts();
+                                            };
 
             frm.Contact = oldContact;
             frm.ShowDialog();
