@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<!-- Todo -->
-<project 	name="Mono.Sms"
+<project name="Mono.Sms"
 			default="all"
 			xmlns="http://nant.sourceforge.net/release/0.85/nant.xsd"
 			basedir=".">
@@ -8,21 +7,22 @@
   <property name="debug" value="true" />
   <property name="build.dir" value="build" />
 
-  <!-- Main target -->
+  <!-- target principal -->
   <target name="all" description="make all !">
+    <call target="generate-assemblyinfo"/>
     <call target="build"/>
     <call target="copy"/>
   </target>
 
-  <target name="clean" description="remove all build products">
+  <target name="clean" description="remueve builds anteriores">
     <delete dir="${build.dir}"  if="${directory::exists('${build.dir}')}" />
   </target>
 
-  <target name="init" depends="clean" description="create directories">
+  <target name="init" depends="clean" description="crea el directorio">
     <mkdir dir="build" />
   </target>
 
-  <target name="build"  description="compiles the application" depends="clean,init">
+  <target name="build"  description="compila la aplicacion" depends="clean,init">
 
     <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" >
 
@@ -30,11 +30,18 @@
         <include name="src/${project::get-name()}/Core/**/*.cs" />
         <include name="src/${project::get-name()}/*.cs" />
 
-        <exclude name="src/**/AssemblyInfo.cs" />
+        <!--exclude name="src/**/AssemblyInfo.cs" /-->
 
         <!-- exclude ReSharper stuff -->
-        <exclude name="src/${project::get-name()}/**/_ReSharper*/**" />
-        <exclude name="src/${project::get-name()}/**/*.resharper" />
+        <exclude name="**/_ReSharper*/**" />
+        <exclude name="**/*.resharper" />
+
+        <!-- exclude Visual Studio stuff -->
+        <exclude name="**/*.suo" />
+        <exclude name="**/*.user" />
+        <exclude name="**/bin/**" />
+        <exclude name="**/obj/**" />
+        
       </sources>
 
       <references>
@@ -55,13 +62,13 @@
     </csc>
   </target>
 
-  <target name="copy" description="make some copies">
+  <target name="copy" description="copia algunos archivos">
 
     <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
     <copy file="src/${project::get-name()}/files/contacts.monosms" tofile="${build.dir}/files/contacts.monosms" />
     <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
 
-    <!-- copy the references -->
+    <!-- copia las librerias necesarias -->
     <copy todir="${build.dir}/">
       <fileset basedir="lib">
         <include name="*.dll" />
@@ -71,5 +78,39 @@
   </target>
 
 
+  <target name="generate-assemblyinfo"
+		depends="init"
+		description="Genera el archivo AssemblyInfo.cs para Visual Studio/SharpDevelop"
+	>
+    <asminfo output="src/Mono.Sms/Properties/AssemblyInfo.cs" language="CSharp">
+      <imports>
+        <import namespace="System" />
+        <import namespace="System.Reflection" />
+        <!--import namespace="System.Runtime.CompilerServices" /-->
+        <!--import namespace="System.Security" if="${assembly.allow-partially-trusted-callers}" /-->
+      </imports>
 
+      <attributes>
+        <attribute type="CLSCompliantAttribute" value="false" />
+        <attribute type="AssemblyTitleAttribute" value="${project::get-name()}" />
+        <attribute type="AssemblyDescriptionAttribute" value="Aplicacion para el envio de mensajes de texto." />
+        <attribute type="AssemblyCompanyAttribute" value="Mono.Sms Team" />
+        <attribute type="AssemblyProductAttribute" value="Mono.Sms" />
+        <attribute type="AssemblyCopyrightAttribute" value="Copyright © 2007 Dario Quintana and contributors. All Rights Reserved." />
+        <attribute type="AssemblyVersionAttribute" value="0.9.0" />
+        <!--attribute type="AssemblyInformationalVersionAttribute" value="" /-->
+        <!--attribute type="AssemblyFileVersionAttribute" value="${assembly.version.file}" /-->
+        <!--attribute type="AssemblyKeyFileAttribute" value="${assembly.keyfile}" if="${assembly.sign}"/-->
+        <!--attribute type="AssemblyDelaySignAttribute" value="false" /-->
+
+        <!-- For some reason, NAnt doesn't detect that APTCA has a public no-argument constructor -->
+        <!--attribute asis="true" type="AllowPartiallyTrustedCallersAttribute" if="${assembly.allow-partially-trusted-callers}" /-->
+      </attributes>
+    </asminfo>
+
+  </target>
+  
+  
+  
+  
 </project>
