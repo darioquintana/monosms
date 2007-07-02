@@ -9,6 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mono.Sms</RootNamespace>
     <AssemblyName>Mono.Sms</AssemblyName>
+    <ApplicationIcon>Resources\monosmsicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -169,6 +170,9 @@
     <EmbeddedResource Include="Resources\mensaje.png" />
     <EmbeddedResource Include="Resources\nuevocontacto.png" />
     <EmbeddedResource Include="Resources\salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\monosmsicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Exception\" />
