@@ -7,6 +7,8 @@ namespace Mono.Sms.Core
 {
     public class Agenda
     {
+    	const string pathFile = "files/contacts.monosms";
+    
         private static List<Contact> list = new List<Contact>();
 
         public static List<Contact> Contacts
@@ -51,7 +53,7 @@ namespace Mono.Sms.Core
             }
             try
             {
-                StreamWriter sw = new StreamWriter("files/contacts.monosms");
+                StreamWriter sw = new StreamWriter(pathFile);
                 sw.Write(sb.ToString());
                 sw.Flush();
                 sw.Close();
@@ -66,7 +68,18 @@ namespace Mono.Sms.Core
         {
             try
             {
-                StreamReader sr = new StreamReader("files/contacts.monosms");
+            	//Si no existe una agenda, la creo.
+            	if(!File.Exists(pathFile))
+            	{
+            		if(!Directory.Exists("files"))
+            		{
+            			Directory.CreateDirectory("files");
+            		}
+            		
+            		File.Create(pathFile);            		
+            	}
+            	   
+                StreamReader sr = new StreamReader(pathFile);
 
                 List<Contact> returnList = new List<Contact>();
 
