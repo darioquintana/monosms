@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Mono.Sms
 {
-    public partial class Historial : Form
+    public partial class Historial : Form 
     {
         public Historial()
         {
