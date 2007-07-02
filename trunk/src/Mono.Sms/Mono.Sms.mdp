@@ -1,4 +1,4 @@
-<Project name="Mono.Sms" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+<Project defaultDeployTarget="files" name="Mono.Sms" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
   <Configurations active="Debug">
     <Configuration name="Debug" ctype="DotNetProjectConfiguration">
       <Output directory="./bin/Debug" assembly="Mono.Sms" />
@@ -44,8 +44,6 @@
     <File name="./Properties/AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
     <File name="./Properties/Settings.Designer.cs" subtype="Code" buildaction="Compile" />
     <File name="./Properties/Settings.settings" subtype="Code" buildaction="EmbedAsResource" />
-    <File name="./files" subtype="Directory" buildaction="Nothing" />
-    <File name="./files/contacts.monosms" subtype="Code" buildaction="FileCopy" />
     <File name="./Resources/borrar.png" subtype="Code" buildaction="EmbedAsResource" />
     <File name="./Resources/cancelar.png" subtype="Code" buildaction="EmbedAsResource" />
     <File name="./Resources/configuracion.png" subtype="Code" buildaction="EmbedAsResource" />
