@@ -59,9 +59,12 @@ namespace Mono.Sms.Core
 
             if (stream == null)
             {
+            	//Así se encuentran los recursos cuando se usa Visual Studio/NAnt en la compilación.
                 string fullName = string.Concat(ourNamespace, ".", fileName);
                 stream = ourAssembly.GetManifestResourceStream(fullName);
                 
+                //Hack: cuando uso monodevelop para compilar, necesito esta opción de aquí abajo.
+                //MD no modifica los nombres de los archivos de recursos cuando los embebe.
                 if(stream == null)
                 {
                 	 stream = ourAssembly.GetManifestResourceStream(fileName);                
