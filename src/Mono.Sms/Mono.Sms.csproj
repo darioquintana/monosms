@@ -137,9 +137,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="files\contacts.monosms">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <EmbeddedResource Include="Resources\creditos.rtf">
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
