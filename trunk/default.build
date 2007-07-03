@@ -27,9 +27,9 @@
     <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" win32icon="src/${project::get-name()}/Resources/monosmsicon.ico" >
 
       <sources>
-        <include name="src/${project::get-name()}/Core/**/*.cs" />
-        <include name="src/${project::get-name()}/*.cs" />
-
+        <include name="src/${project::get-name()}/**/*.cs" />
+        <!--include name="src/${project::get-name()}/*.cs" />
+		<include name="src/Mono.Sms/Properties/AssemblyInfo.cs"/-->
         <!--exclude name="src/**/AssemblyInfo.cs" /-->
 
         <!-- exclude ReSharper stuff -->
@@ -65,7 +65,6 @@
   <target name="copy" description="copia algunos archivos">
 
     <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
-    <copy file="src/${project::get-name()}/files/contacts.monosms" tofile="${build.dir}/files/contacts.monosms" />
     <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
 
     <!-- copia las librerias necesarias -->
