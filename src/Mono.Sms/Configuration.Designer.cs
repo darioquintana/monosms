@@ -28,6 +28,7 @@ namespace Mono.Sms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguration));
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -93,6 +94,7 @@ namespace Mono.Sms
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(29, 90);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(271, 90);
@@ -103,6 +105,7 @@ namespace Mono.Sms
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
             this.checkBox1.Location = new System.Drawing.Point(5, 1);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
@@ -231,6 +234,7 @@ namespace Mono.Sms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConfiguration";
@@ -244,7 +248,6 @@ namespace Mono.Sms
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.Icon = Mono.Sms.Core.MonoSmsResources.GetIconFromImage("configuracion.png");
 
         }
 
