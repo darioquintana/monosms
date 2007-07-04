@@ -3,12 +3,12 @@ Mono.Sms - Notas de la Version
 
 Build 0.9.0
 ===========
-	-	Se mejoró la compatibilidad para correr en Mono 1.2.4 en Linux/Windows.
-	-	Se cambio la manera de manejar los recursos. Ahora estan todos embebidos en el assembly Mono.Sms
+	-	Mejoró la compatibilidad para correr con Mono 1.2.4 en Linux/Windows.
+	-	Cambio la manera de manejar los recursos. Ahora estan todos embebidos en el assembly Mono.Sms
 	-	Se agregó la clase MonoSmsResources para el manejo de los recursos.
 	-	Se agregaron los archivos de solución MonoDevelop.
-	-	Se adaptó la aplicación para la compilación en MonoDevelop.
-	-	Se corriegieron bugs.
+	-	Adaptación para la compilación con MonoDevelop. 
+	-	Corrección de bugs.	
 
 Build Preview 1
 =================
