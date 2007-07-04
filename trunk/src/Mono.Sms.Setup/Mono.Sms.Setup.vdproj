@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
+        "OwnerKey" = "8:_45C17E27225F49159D24C95021898DAB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3789F8B0D4D64E82B2E610F7499E3CD3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -27,50 +33,50 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_60F049D8A555F3AD67CA2D9ABE5668BB"
+        "MsmKey" = "8:_4682DC0A0256B0643C7FA8428476BFD2"
         "OwnerKey" = "8:_45C17E27225F49159D24C95021898DAB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_60F049D8A555F3AD67CA2D9ABE5668BB"
-        "OwnerKey" = "8:_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
+        "MsmKey" = "8:_4682DC0A0256B0643C7FA8428476BFD2"
+        "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_60F049D8A555F3AD67CA2D9ABE5668BB"
-        "OwnerKey" = "8:_D2B987B04F3FCD76FEB57AB4B4FE0C84"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
+        "MsmKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
         "OwnerKey" = "8:_45C17E27225F49159D24C95021898DAB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_914D985750701EF8B3F0200C5B626E28"
+        "MsmKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
+        "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
+        "OwnerKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D6FC99C726134D6E9F5B3F4BE071FD08"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
         "OwnerKey" = "8:_45C17E27225F49159D24C95021898DAB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_914D985750701EF8B3F0200C5B626E28"
-        "OwnerKey" = "8:_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D2B987B04F3FCD76FEB57AB4B4FE0C84"
-        "OwnerKey" = "8:_45C17E27225F49159D24C95021898DAB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D2B987B04F3FCD76FEB57AB4B4FE0C84"
-        "OwnerKey" = "8:_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
+        "MsmKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
+        "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,25 +88,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
+        "OwnerKey" = "8:_294E6C19301664C69C88A3DA1DA40594"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D2B987B04F3FCD76FEB57AB4B4FE0C84"
+        "OwnerKey" = "8:_E1EEE97F55A8A1AF630BEE36A12D34F8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_914D985750701EF8B3F0200C5B626E28"
+        "OwnerKey" = "8:_4682DC0A0256B0643C7FA8428476BFD2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_60F049D8A555F3AD67CA2D9ABE5668BB"
+        "OwnerKey" = "8:_8A163647BA7B377655FCDF9CF5C2E1E2"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -188,65 +194,14 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3789F8B0D4D64E82B2E610F7499E3CD3"
-            {
-            "SourcePath" = "8:..\\Mono.Sms\\Resources\\monosmsicon.ico"
-            "TargetName" = "8:monosmsicon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_60F049D8A555F3AD67CA2D9ABE5668BB"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Castle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_60F049D8A555F3AD67CA2D9ABE5668BB"
-                    {
-                    "Name" = "8:Castle.Core.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Castle.Core.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_294E6C19301664C69C88A3DA1DA40594"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Castle.Windsor, Version=1.0.0.2, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_71B17DFEB70FD1AFE0E090EF4AC9F0DA"
+                    "_294E6C19301664C69C88A3DA1DA40594"
                     {
                     "Name" = "8:Castle.Windsor.dll"
                     "Attributes" = "3:512"
@@ -270,14 +225,34 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_914D985750701EF8B3F0200C5B626E28"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3789F8B0D4D64E82B2E610F7499E3CD3"
+            {
+            "SourcePath" = "8:..\\Mono.Sms\\Resources\\monosmsicon.ico"
+            "TargetName" = "8:monosmsicon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4682DC0A0256B0643C7FA8428476BFD2"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_914D985750701EF8B3F0200C5B626E28"
+                    "_4682DC0A0256B0643C7FA8428476BFD2"
                     {
                     "Name" = "8:Castle.DynamicProxy.dll"
                     "Attributes" = "3:512"
@@ -301,14 +276,65 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D2B987B04F3FCD76FEB57AB4B4FE0C84"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8A163647BA7B377655FCDF9CF5C2E1E2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Castle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8A163647BA7B377655FCDF9CF5C2E1E2"
+                    {
+                    "Name" = "8:Castle.Core.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Castle.Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6FC99C726134D6E9F5B3F4BE071FD08"
+            {
+            "SourcePath" = "8:..\\..\\notasdeversion.txt"
+            "TargetName" = "8:notasdeversion.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_E557437946E64608BE2A66E391BA9EFB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E1EEE97F55A8A1AF630BEE36A12D34F8"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Castle.MicroKernel, Version=1.0.0.2, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D2B987B04F3FCD76FEB57AB4B4FE0C84"
+                    "_E1EEE97F55A8A1AF630BEE36A12D34F8"
                     {
                     "Name" = "8:Castle.MicroKernel.dll"
                     "Attributes" = "3:512"
@@ -388,7 +414,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Mono.Sms.Setup"
         "ProductCode" = "8:{E6A7EC5B-FAA4-414B-AFF2-79C7A680A9BA}"
-        "PackageCode" = "8:{6A524D32-853F-40E6-BEF2-BE8351488588}"
+        "PackageCode" = "8:{FB114CBF-BD88-4312-A69D-5C0FD8769ED2}"
         "UpgradeCode" = "8:{1589B56D-DE04-449A-8D2B-1BC6ADA1DB85}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -517,7 +543,7 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_45C17E27225F49159D24C95021898DAB"
             "Folder" = "8:_03A8360D105645F6BE164BCBE50870FA"
-            "WorkingFolder" = "8:_03A8360D105645F6BE164BCBE50870FA"
+            "WorkingFolder" = "8:_E557437946E64608BE2A66E391BA9EFB"
             "Icon" = "8:_3789F8B0D4D64E82B2E610F7499E3CD3"
             "Feature" = "8:"
             }
