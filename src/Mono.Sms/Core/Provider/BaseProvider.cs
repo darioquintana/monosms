@@ -18,7 +18,7 @@ namespace Mono.Sms.Core.Provider
         //protected string dataPost;
         protected string hostName;
         protected int port;
-        protected string sign = "monosms.-";
+        protected string sign = "mono.sms -";
         protected string message;
         protected CelNumber celNumber;
         protected int numberOfCharacters = 0;
