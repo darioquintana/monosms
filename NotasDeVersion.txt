@@ -1,8 +1,0 @@
-Mono.Sms - Notas de la Version
-=================
-- Todo nuevo !
-
-
-Preview 1 Version
-=================
--	Todo nuevo ! 
