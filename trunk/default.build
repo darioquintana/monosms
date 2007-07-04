@@ -48,7 +48,6 @@
         <include name="System.Drawing.dll"/>
         <include name="System.Configuration.dll"/>
         <include name="System.Windows.Forms.dll"/>
-        <include name="System.Configuration.dll"/>
         <include name="System.Web.dll"/>
 
         <include name="lib/*.dll" />
