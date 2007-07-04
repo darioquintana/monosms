@@ -414,7 +414,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Mono.Sms.Setup"
         "ProductCode" = "8:{E6A7EC5B-FAA4-414B-AFF2-79C7A680A9BA}"
-        "PackageCode" = "8:{FB114CBF-BD88-4312-A69D-5C0FD8769ED2}"
+        "PackageCode" = "8:{BE4E570F-6D88-498F-A4FB-8104A4EAE100}"
         "UpgradeCode" = "8:{1589B56D-DE04-449A-8D2B-1BC6ADA1DB85}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
