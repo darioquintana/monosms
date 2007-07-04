@@ -65,6 +65,7 @@
   <target name="copy" description="copia algunos archivos">
 
     <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
+    <copy file="notasdeversion.txt" tofile="${build.dir}/notasdeversion.txt" />
     <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
 
     <!-- copia las librerias necesarias -->
@@ -79,31 +80,22 @@
 
   <target name="generate-assemblyinfo"
 		depends="init"
-		description="Genera el archivo AssemblyInfo.cs para Visual Studio/SharpDevelop"
+		description="Genera el archivo AssemblyInfo.cs con la informacion del assembly"
 	>
     <asminfo output="src/Mono.Sms/Properties/AssemblyInfo.cs" language="CSharp">
       <imports>
         <import namespace="System" />
         <import namespace="System.Reflection" />
-        <!--import namespace="System.Runtime.CompilerServices" /-->
-        <!--import namespace="System.Security" if="${assembly.allow-partially-trusted-callers}" /-->
       </imports>
 
       <attributes>
         <attribute type="CLSCompliantAttribute" value="false" />
         <attribute type="AssemblyTitleAttribute" value="${project::get-name()}" />
-        <attribute type="AssemblyDescriptionAttribute" value="Aplicacion para el envio de mensajes de texto." />
+        <attribute type="AssemblyDescriptionAttribute" value="Aplicacion para el envio de mensajes de texto escrito en c#" />
         <attribute type="AssemblyCompanyAttribute" value="Mono.Sms Team" />
         <attribute type="AssemblyProductAttribute" value="Mono.Sms" />
         <attribute type="AssemblyCopyrightAttribute" value="Copyright © 2007 Dario Quintana and contributors. All Rights Reserved." />
-        <attribute type="AssemblyVersionAttribute" value="0.9.0" />
-        <!--attribute type="AssemblyInformationalVersionAttribute" value="" /-->
-        <!--attribute type="AssemblyFileVersionAttribute" value="${assembly.version.file}" /-->
-        <!--attribute type="AssemblyKeyFileAttribute" value="${assembly.keyfile}" if="${assembly.sign}"/-->
-        <!--attribute type="AssemblyDelaySignAttribute" value="false" /-->
-
-        <!-- For some reason, NAnt doesn't detect that APTCA has a public no-argument constructor -->
-        <!--attribute asis="true" type="AllowPartiallyTrustedCallersAttribute" if="${assembly.allow-partially-trusted-callers}" /-->
+        <attribute type="AssemblyVersionAttribute" value="0.9.0" />     
       </attributes>
     </asminfo>
 
