@@ -14,7 +14,7 @@ namespace Mono.Sms
 
         private void AcercaDe_Load(object sender, EventArgs e)
         {
-            linkWeb.Links.Add(0, linkWeb.Text.Length, "http://darioquintana.com.ar/projects/monosms/");
+            linkWeb.Links.Add(0, linkWeb.Text.Length, "http://code.google.com/p/monosms/");
 
             rtxtReleaseNotes.LoadFile(MonoSmsResources.GetResourceStream("creditos.rtf"),RichTextBoxStreamType.RichText);
         }

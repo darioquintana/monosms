@@ -28,6 +28,7 @@ namespace Mono.Sms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AcercaDe));
             this.panel1 = new System.Windows.Forms.Panel();
             this.rtxtReleaseNotes = new System.Windows.Forms.RichTextBox();
             this.picMonoSms = new System.Windows.Forms.PictureBox();
@@ -63,13 +64,12 @@ namespace Mono.Sms
             // 
             // picMonoSms
             // 
+            this.picMonoSms.Image = ((System.Drawing.Image)(resources.GetObject("picMonoSms.Image")));
             this.picMonoSms.Location = new System.Drawing.Point(0, 0);
             this.picMonoSms.Name = "picMonoSms";
             this.picMonoSms.Size = new System.Drawing.Size(60, 50);
             this.picMonoSms.TabIndex = 11;
             this.picMonoSms.TabStop = false;
-            this.picMonoSms.Image = Mono.Sms.Core.MonoSmsResources.GetImage("monosmstalking.png");
-
             // 
             // label2
             // 
@@ -95,7 +95,7 @@ namespace Mono.Sms
             this.linkWeb.TabIndex = 12;
             this.linkWeb.TabStop = true;
             this.linkWeb.Tag = "";
-            this.linkWeb.Text = "http://darioquintana.com.ar/projects/monosms";
+            this.linkWeb.Text = "http://code.google.com/p/monosms/";
             this.linkWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkWeb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkWeb_LinkClicked);
             // 
