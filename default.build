@@ -66,8 +66,8 @@
 
     <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
     <copy file="notasdeversion.txt" tofile="${build.dir}/notasdeversion.txt" />
-    <!--copy file="files/licence.htm" tofile="${build.dir}/licence.htm" /-->
-
+	<copy file="leeme.txt" tofile="${build.dir}/leeme.txt" />
+  
     <!-- copia las librerias necesarias -->
     <copy todir="${build.dir}/">
       <fileset basedir="lib">
