@@ -1,0 +1,19 @@
+Mono.Sms - Aplicación para el envio de mensajes de texto escrita en C#.
+========
+
+Para correr en Linux 
+====================
+	-	Se necesita tener instalado Mono 1.2.4 ó superior.
+	-	Para la configuración del SMTP debe hacerse en el archivo de configuración "Mono.Sms.exe.config". Por ejemplo:
+		 <monosms>
+		    <settings>
+		      <add name="user.email" value="usuario@monosms.com.ar" />
+		      <add name="user.name" value="usuario" />
+		      <add name="smtp.server" value="mail.gigared.com" />
+		    </settings>
+		  </monosms>
+
+
+Para correr en Windows
+======================
+Se necesita tener instalado .Net Framework 2.0 ó Mono 1.2.4 o superior.
