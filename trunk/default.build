@@ -6,6 +6,9 @@
 
   <property name="debug" value="true" />
   <property name="build.dir" value="build" />
+  <property name="build.zip.dir" value="build-zip" />
+  <property name="source.svn.dir" value="source-svn"/>
+  <property name="build.version" value="0.9.0" />
 
   <!-- target principal -->
   <target name="all" description="make all !">
@@ -29,7 +32,7 @@
       <sources>
         <include name="src/${project::get-name()}/**/*.cs" />
         <!--include name="src/${project::get-name()}/*.cs" />
-		<include name="src/Mono.Sms/Properties/AssemblyInfo.cs"/-->
+	<include name="src/Mono.Sms/Properties/AssemblyInfo.cs"/-->
         <!--exclude name="src/**/AssemblyInfo.cs" /-->
 
         <!-- exclude ReSharper stuff -->
@@ -63,8 +66,8 @@
 
   <target name="copy" description="copia algunos archivos">
 
-    <copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config" if="${file::exists('src/Mono.Sms/App.config')}"/>
-    <copy file="notasdeversion.txt" tofile="${build.dir}/notasdeversion.txt" />
+	<copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config"/>
+	<copy file="notasdeversion.txt" tofile="${build.dir}/notasdeversion.txt" />
 	<copy file="leeme.txt" tofile="${build.dir}/leeme.txt" />
   
     <!-- copia las librerias necesarias -->
@@ -94,13 +97,73 @@
         <attribute type="AssemblyCompanyAttribute" value="Mono.Sms Team" />
         <attribute type="AssemblyProductAttribute" value="Mono.Sms" />
         <attribute type="AssemblyCopyrightAttribute" value="Copyright © 2007 Dario Quintana and contributors. All Rights Reserved." />
-        <attribute type="AssemblyVersionAttribute" value="0.9.0" />     
+        <attribute type="AssemblyVersionAttribute" value="${build.version}" />     
       </attributes>
     </asminfo>
 
   </target>
-  
-  
+
+
+<target name="zip" depends="all">
+	<call target="clean.zip"/>
+	<call target="zip.bin"/>
+	<call target="zip.src"/>
+</target>
+
+<target name="clean.zip">
+	<delete dir="${build.zip.dir}"  if="${directory::exists('${build.zip.dir}')}" />
+	<mkdir dir="${build.zip.dir}"/>
+</target>
+
+<target name="zip.bin" description="construye un zip con los archivos binarios">
+	<zip zipfile="${build.zip.dir}/${project::get-name()}.bin.${build.version}.zip">
+	    <fileset basedir="${build.dir}">
+	        <include name="**/*" />
+	    </fileset>
+	</zip>
+</target>
+
+<target name="zip.src" description="construye un zip con el codigo fuente">
+	<zip zipfile="${build.zip.dir}/${project::get-name()}.src.${build.version}.zip">
+	    	<fileset basedir="${project::get-base-directory()}" >		        		
+			<include name="src/**/*"/>
+			<include name="lib/**/*"/>
+			<include name="default.build"/>
+			<include name="*.txt" />
+
+			<!-- exclude ReSharper stuff -->
+		        <exclude name="**/_ReSharper*/**" />
+	        	<exclude name="**/*.resharper" />
+
+	        	<!-- exclude Visual Studio stuff -->
+	        	<exclude name="**/*.suo" />
+	        	<exclude name="**/*.user" />
+	        	<exclude name="**/bin/**" />
+	        	<exclude name="**/obj/**" />
+
+	    	</fileset>
+	</zip>
+</target>
+
+<target name="svn" depends="clean.svn">
+	<call target="checkout"/>
+	
+</target>
+
+<target name="clean.svn">
+	  <delete dir="${source.svn.dir}"  if="${directory::exists('${source.svn.dir}')}" />
+</target>
+
+<target name="checkout" description="Realiza el checkout del svn"/>
+	<svn-update
+	    destination="${source.svn.dir}" 
+	    uri="http://monosms.googlecode.com/svn/trunk/" 
+	    recursive="true"
+	    verbose="true"
+	    revision="HEAD"
+	    cache-auth="false"
+	 />
+</target>
   
   
 </project>
