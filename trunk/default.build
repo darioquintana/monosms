@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <project name="Mono.Sms"
-			default="all"
-			xmlns="http://nant.sourceforge.net/release/0.85/nant.xsd"
-			basedir=".">
+	default="all"
+	xmlns="http://nant.sourceforge.net/release/0.85/nant.xsd"
+	basedir=".">
 
   <property name="debug" value="true" />
   <property name="build.dir" value="build" />
@@ -51,6 +51,7 @@
         <include name="System.Drawing.dll"/>
         <include name="System.Configuration.dll"/>
         <include name="System.Windows.Forms.dll"/>
+        <include name="System.Configuration.dll"/>
         <include name="System.Web.dll"/>
 
         <include name="lib/*.dll" />
@@ -154,16 +155,20 @@
 	  <delete dir="${source.svn.dir}"  if="${directory::exists('${source.svn.dir}')}" />
 </target>
 
-<target name="checkout" description="Realiza el checkout del svn"/>
-	<svn-update
+<target name="checkout" description="Realiza el checkout del svn">
+
+	<!--svn-checkout
 	    destination="${source.svn.dir}" 
 	    uri="http://monosms.googlecode.com/svn/trunk/" 
 	    recursive="true"
 	    verbose="true"
 	    revision="HEAD"
 	    cache-auth="false"
-	 />
+	 /-->
+
+	<!--exec program="svn co http://monosms.googlecode.com/svn/trunk/ ${source.svn.dir}"/-->
+
 </target>
-  
-  
+
 </project>
+
