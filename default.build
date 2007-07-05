@@ -31,9 +31,6 @@
 
       <sources>
         <include name="src/${project::get-name()}/**/*.cs" />
-        <!--include name="src/${project::get-name()}/*.cs" />
-	<include name="src/Mono.Sms/Properties/AssemblyInfo.cs"/-->
-        <!--exclude name="src/**/AssemblyInfo.cs" /-->
 
         <!-- exclude ReSharper stuff -->
         <exclude name="**/_ReSharper*/**" />
@@ -44,7 +41,6 @@
         <exclude name="**/*.user" />
         <exclude name="**/bin/**" />
         <exclude name="**/obj/**" />
-        
       </sources>
 
       <references>
@@ -75,7 +71,6 @@
     <copy todir="${build.dir}/">
       <fileset basedir="lib">
         <include name="*.dll" />
-        <!--include name="*.xml" /-->
       </fileset>
     </copy>
   </target>
@@ -146,9 +141,14 @@
 	</zip>
 </target>
 
+
+
+<!-- SVN target -->
+<property name="svn.executable" value="/usr/bin/svn" />
+<property name="svn.url" value="http://monosms.googlecode.com/svn/trunk/" />
+
 <target name="svn" depends="clean.svn">
 	<call target="checkout"/>
-	
 </target>
 
 <target name="clean.svn">
@@ -157,6 +157,9 @@
 
 <target name="checkout" description="Realiza el checkout del svn">
 
+        <!--exec program="${svn.executable}" commandline="checkout ${svn.url} ${project.dir}" /-->
+	<exec program="${svn.executable}" commandline="checkout ${svn.url} ${source.svn.dir}" />
+	project::get-name()
 	<!--svn-checkout
 	    destination="${source.svn.dir}" 
 	    uri="http://monosms.googlecode.com/svn/trunk/" 
@@ -165,10 +168,7 @@
 	    revision="HEAD"
 	    cache-auth="false"
 	 /-->
-
 	<!--exec program="svn co http://monosms.googlecode.com/svn/trunk/ ${source.svn.dir}"/-->
-
 </target>
-
 </project>
 
