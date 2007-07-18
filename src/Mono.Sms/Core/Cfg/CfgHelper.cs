@@ -68,7 +68,6 @@ namespace Mono.Sms.Core.Cfg
 
             //for this reason I use this.
             return ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-              
         }
 
         private static ExeConfigurationFileMap GetExeConfigurationFileMap(string fileName)

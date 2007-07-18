@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Mono.Sms.Core.UI
 {
-    public class TextBoxOnyNumbers : TextBox
+    public class TextBoxOnlyNumbers : TextBox
     {
         protected override void OnKeyPress(KeyPressEventArgs e)
         {

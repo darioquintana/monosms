@@ -47,9 +47,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcercaDe.cs">
@@ -57,6 +59,12 @@
     </Compile>
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodigoValidacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodigoValidacion.Designer.cs">
+      <DependentUpon>CodigoValidacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs">
       <SubType>Form</SubType>
@@ -84,6 +92,7 @@
     <Compile Include="Core\Provider\IProvider.cs" />
     <Compile Include="Core\MailSender.cs" />
     <Compile Include="Core\Operation.cs" />
+    <Compile Include="Core\Provider\Personal2Provider.cs" />
     <Compile Include="Core\Provider\PersonalProvider.cs" />
     <Compile Include="Core\SmtpServers.cs" />
     <Compile Include="Core\UI\ContactsListView.cs">
@@ -158,6 +167,10 @@
     <EmbeddedResource Include="Resources\monosmstalking.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CodigoValidacion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CodigoValidacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\borrar.png" />
     <EmbeddedResource Include="Resources\cancelar.png" />
     <EmbeddedResource Include="Resources\configuracion.png" />

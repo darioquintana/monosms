@@ -9,7 +9,6 @@ using Mono.Sms.Core.Provider;
 
 namespace Mono.Sms.Core
 {
-
     public class IoC
     {
         private static IoC ioC = null;
@@ -35,10 +34,7 @@ namespace Mono.Sms.Core
 
         public IWindsorContainer Container
         {
-            get
-            {
-                return container;
-            }
+            get { return container; }
         }
 
         public T Resolve<T>()
@@ -51,24 +47,24 @@ namespace Mono.Sms.Core
             return Resolve<T>(name);
         }
 
-        public T Resolve<T>(string message, CelNumber number) where T: IProvider
+        public T Resolve<T>(string message, CelNumber number) where T : IProvider
         {
             IDictionary args = new ListDictionary();
 
             args.Add("message", message);
             args.Add("number", number);
 
-            return (T)container.Kernel.Resolve(typeof(T), args);
+            return (T) container.Kernel.Resolve(typeof (T), args);
         }
-        
+
         public IList<IProvider> GetAllProviders()
         {
             IHandler[] handles = container.Kernel.GetHandlers(typeof (IProvider));
             IList<IProvider> providersImpl = new List<IProvider>();
-            
+
             foreach (IHandler hdlr in handles)
             {
-                providersImpl.Add((IProvider)hdlr.Resolve(CreationContext.Empty));
+                providersImpl.Add((IProvider) hdlr.Resolve(CreationContext.Empty));
             }
 
             return providersImpl;

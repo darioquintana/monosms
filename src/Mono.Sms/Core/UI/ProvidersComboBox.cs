@@ -1,7 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Mono.Sms.Core.Provider;
-using System.Collections;
 
 namespace Mono.Sms.Core.UI
 {
@@ -20,7 +20,6 @@ namespace Mono.Sms.Core.UI
 
         protected override void OnDropDown(System.EventArgs e)
         {
-
             if (e != null) base.OnDropDown(e);
 
             if (! ProvidersLoaded)

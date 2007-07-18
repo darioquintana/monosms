@@ -1,5 +1,5 @@
-using System.Net.Mail;
 using System;
+using System.Net.Mail;
 
 namespace Mono.Sms.Core
 {
@@ -48,11 +48,11 @@ namespace Mono.Sms.Core
             MailMessage mail = new MailMessage();
 
             mail.From = new MailAddress(this.From);
-          
+
             mail.Body = this.message;
 
             mail.To.Add(this.To);
-         
+
             mail.Subject = this.subject;
 
             mail.IsBodyHtml = false;

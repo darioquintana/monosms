@@ -306,7 +306,7 @@ namespace Mono.Sms
             //Dentro de los Metodos anónimos se debe escribir la ruta completa de los tipos.
             frm.ContactsEventHandler += delegate(Contact contact, Operation op)
                                             {
-                                            	Mono.Sms.Core.Agenda.UpdateContact(oldContact, contact);
+                                                Mono.Sms.Core.Agenda.UpdateContact(oldContact, contact);
                                                 LoadContacts();
                                             };
 

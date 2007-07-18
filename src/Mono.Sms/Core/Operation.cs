@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Mono.Sms.Core
 {
-    public enum  Operation
+    public enum Operation
     {
-        Add,Edit,Remove
+        Add,
+        Edit,
+        Remove
     }
 }

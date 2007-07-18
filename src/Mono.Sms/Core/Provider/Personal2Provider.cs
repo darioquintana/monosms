@@ -2,9 +2,9 @@ using System.Web;
 
 namespace Mono.Sms.Core.Provider
 {
-    public class PersonalProvider : BaseProvider
+    public class Personal2Provider : BaseProvider
     {
-        public PersonalProvider(string message, CelNumber number)
+        public Personal2Provider(string message, CelNumber number)
             : base(message, number)
         {
             //Example of configuration. This parameters are inyected by Windsor.
@@ -28,7 +28,7 @@ namespace Mono.Sms.Core.Provider
 
                 //string messageUrlFormated = HttpUtility.UrlEncode(this.Message);
                 string messageUrlFormated = Message
-                    
+
                     //Compilar esto en Mono/Linux, no funciona.
                     //.Replace('á', 'a')
                     //.Replace('é', 'e')
@@ -36,7 +36,7 @@ namespace Mono.Sms.Core.Provider
                     //.Replace('ó', 'o')
                     //.Replace('ú', 'u')
                     //.Replace('ñ', 'n');
-                                       
+
                     //.Replace(char.Parse("á"), char.Parse("a"))
                     //.Replace(char.Parse("é"), char.Parse("e"))
                     //.Replace(char.Parse("í"), char.Parse("i"))
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 UA-CPU: x86
 Accept-Encoding: gzip, deflate
 User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; FDM)
-Host: 200.43.140.25
+Host: 200.43.139.25
 Content-Length: {0}
 Connection: Keep-Alive
 Cache-Control: no-cache
@@ -78,7 +78,7 @@ Cache-Control: no-cache
             }
         }
 
-        public PersonalProvider()
+        public Personal2Provider()
         {
         }
     }

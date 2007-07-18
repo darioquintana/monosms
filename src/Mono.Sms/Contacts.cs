@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using Mono.Sms.Core;
 
@@ -15,7 +14,7 @@ namespace Mono.Sms
             get { return contact; }
             set { contact = value; }
         }
-        
+
         public Operation Operation
         {
             get { return operation; }
@@ -33,7 +32,6 @@ namespace Mono.Sms
 
         private void Contacts_Load(object sender, EventArgs e)
         {
-
             if (Contact != null)
             {
                 txtAreaCode.Text = contact.Number.CodeArea.ToString();
@@ -45,12 +43,9 @@ namespace Mono.Sms
         }
 
 
-
-
         public delegate void ContactsHandler(Contact contact, Operation op);
 
         public event ContactsHandler ContactsEventHandler;
-
 
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -79,20 +74,11 @@ namespace Mono.Sms
             _contact.ProviderName = cmbProviders.Text;
 
             return _contact;
-
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-    
-
-
-
-
     }
-
 }

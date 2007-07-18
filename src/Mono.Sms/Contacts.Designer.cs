@@ -36,8 +36,8 @@ namespace Mono.Sms
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtAreaCode = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
-            this.txtNumber = new Mono.Sms.Core.UI.TextBoxOnyNumbers();
+            this.txtAreaCode = new Mono.Sms.Core.UI.TextBoxOnlyNumbers();
+            this.txtNumber = new Mono.Sms.Core.UI.TextBoxOnlyNumbers();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -182,8 +182,8 @@ namespace Mono.Sms
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Mono.Sms.Core.UI.TextBoxOnyNumbers txtAreaCode;
-        private Mono.Sms.Core.UI.TextBoxOnyNumbers txtNumber;
+        private Mono.Sms.Core.UI.TextBoxOnlyNumbers txtAreaCode;
+        private Mono.Sms.Core.UI.TextBoxOnlyNumbers txtNumber;
         private System.Windows.Forms.Label label3;
         private Mono.Sms.Core.UI.ComboBoxProviders cmbProviders;
     }
