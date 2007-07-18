@@ -8,7 +8,7 @@
   <property name="build.dir" value="build" />
   <property name="build.zip.dir" value="build-zip" />
   <property name="source.svn.dir" value="source-svn"/>
-  <property name="build.version" value="0.9.0" />
+  <property name="build.version" value="0.9.5" />
 
   <!-- target principal -->
   <target name="all" description="make all !">
