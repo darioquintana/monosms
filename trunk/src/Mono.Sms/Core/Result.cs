@@ -5,8 +5,8 @@ namespace Mono.Sms.Core
         private string message;
         private string error = null;
 
-
         #region ctor
+
         public Result(string message, string error)
         {
             this.message = message;
@@ -19,7 +19,9 @@ namespace Mono.Sms.Core
             this.error = null;
         }
 
-        public Result() { }
+        public Result()
+        {
+        }
 
         #endregion
 
@@ -37,10 +39,7 @@ namespace Mono.Sms.Core
 
         public bool IsError
         {
-            get
-            {
-                return !(this.Error == null) ;
-            }
+            get { return !(this.Error == null); }
         }
     }
 }

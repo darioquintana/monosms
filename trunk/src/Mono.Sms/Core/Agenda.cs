@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
+using System.Text;
 
 namespace Mono.Sms.Core
 {
     public class Agenda
     {
-    	const string pathFile = "files/contacts.monosms";
-    
+        private const string pathFile = "files/contacts.monosms";
+
         private static List<Contact> list = new List<Contact>();
 
         public static List<Contact> Contacts
@@ -68,34 +68,33 @@ namespace Mono.Sms.Core
         {
             try
             {
-            	Console.WriteLine("Read Agenda");
-            	//Si no existe una agenda, la creo.
-            	if(!File.Exists(pathFile))
-            	{
-            	
-            		Console.WriteLine("No existe el archivo");
-            		if(!Directory.Exists("files"))
-            		{
-            			Console.WriteLine("no existe el directorio");
-            			Directory.CreateDirectory("files");
-            			Console.WriteLine("creé el directorio");
-            		}
-            		
-            		//Hack: De esta manera no funciona bien en linux
-            		//File.CreateText(pathFile);
-            		
-            		//Tengo que usar esto:
-            		StreamWriter sw = new StreamWriter(pathFile);
-                	sw.Write("");
-                	sw.Flush();
-                	sw.Close();
-                	//
-            		
-            		Console.WriteLine("Creé el archivo de texto {0}",pathFile);
-            	}
-            	   
+                Console.WriteLine("Read Agenda");
+                //Si no existe una agenda, la creo.
+                if (!File.Exists(pathFile))
+                {
+                    Console.WriteLine("No existe el archivo");
+                    if (!Directory.Exists("files"))
+                    {
+                        Console.WriteLine("no existe el directorio");
+                        Directory.CreateDirectory("files");
+                        Console.WriteLine("creÃ© el directorio");
+                    }
+
+                    //Hack: De esta manera no funciona bien en linux
+                    //File.CreateText(pathFile);
+
+                    //Tengo que usar esto:
+                    StreamWriter sw = new StreamWriter(pathFile);
+                    sw.Write("");
+                    sw.Flush();
+                    sw.Close();
+                    //
+
+                    Console.WriteLine("CreÃ© el archivo de texto {0}", pathFile);
+                }
+
                 StreamReader sr = new StreamReader(pathFile);
-                Console.WriteLine("StreamReader de {0}",pathFile);
+                Console.WriteLine("StreamReader de {0}", pathFile);
 
                 List<Contact> returnList = new List<Contact>();
 
@@ -107,8 +106,8 @@ namespace Mono.Sms.Core
                 }
 
                 sr.Close();
-                Console.WriteLine("Cerré el archivo");
-                
+                Console.WriteLine("CerrÃ© el archivo");
+
 
                 list = returnList;
 

@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace Mono.Sms
@@ -12,7 +11,6 @@ namespace Mono.Sms
         [STAThread]
         private static void Main()
         {
-        
 //        	Assembly ourAssembly = Assembly.GetExecutingAssembly();
 //        	        
 //   	     	//Solo para debugging.
@@ -22,8 +20,7 @@ namespace Mono.Sms
 //           	{
 //           		Console.WriteLine("Resource name: {0}",r);                
 //           	}
-           
-        
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

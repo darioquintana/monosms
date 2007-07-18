@@ -2,7 +2,7 @@ namespace Mono.Sms.Core
 {
     public class Contact
     {
-        public Contact(string contactName, CelNumber number,string providerName)
+        public Contact(string contactName, CelNumber number, string providerName)
         {
             this.name = contactName;
             this.providerName = providerName;

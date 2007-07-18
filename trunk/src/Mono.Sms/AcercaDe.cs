@@ -16,7 +16,7 @@ namespace Mono.Sms
         {
             linkWeb.Links.Add(0, linkWeb.Text.Length, "http://code.google.com/p/monosms/");
 
-            rtxtReleaseNotes.LoadFile(MonoSmsResources.GetResourceStream("creditos.rtf"),RichTextBoxStreamType.RichText);
+            rtxtReleaseNotes.LoadFile(MonoSmsResources.GetResourceStream("creditos.rtf"), RichTextBoxStreamType.RichText);
         }
 
 

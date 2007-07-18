@@ -3,7 +3,7 @@ namespace Mono.Sms.Core.Cfg
     public class Settings
     {
         private static Settings settings;
-        
+
         public static Settings Instance
         {
             get

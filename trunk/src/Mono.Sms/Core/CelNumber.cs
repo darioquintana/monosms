@@ -1,5 +1,3 @@
-using System;
-
 namespace Mono.Sms.Core
 {
     public class CelNumber
@@ -11,7 +9,7 @@ namespace Mono.Sms.Core
         {
         }
 
-        public CelNumber(string codeArea,string number)
+        public CelNumber(string codeArea, string number)
         {
             this.codeArea = codeArea;
             this.number = number;

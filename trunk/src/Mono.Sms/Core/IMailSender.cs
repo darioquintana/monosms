@@ -1,7 +1,6 @@
-﻿using System;
-namespace Mono.Sms.Core
+﻿namespace Mono.Sms.Core
 {
-    interface IMailSender
+    internal interface IMailSender
     {
         string From { get; set; }
         string Message { get; set; }
