@@ -1,15 +1,22 @@
 Mono.Sms - Notas de la Version
 ==============================
 
+Build 0.9.5
+===========
+	-	El proveedor de Personal se agrega el código de validación. 
+	- El antiguo proveedor Personal deja de funcionar.
+	- Posibilidad de usar NAnt para hacer checkout del svn y crear empaquetados en zip.
+	
+
 Build 0.9.0
 ===========
 	-	Mejoró la compatibilidad para correr con Mono 1.2.4 en Linux/Windows.
-	- 	Mejora en archivos de build para compilación con NAnt.
+	- Mejora en archivos de build para compilación con NAnt.
 	-	Cambio la manera de manejar los recursos. Ahora estan todos embebidos en el assembly Mono.Sms
 	-	Se agregó la clase MonoSmsResources para el manejo de los recursos.
 	-	Se agregaron los archivos de solución MonoDevelop.
 	-	Adaptación para la compilación con MonoDevelop. 
-	- 	Crea automaticamente el archivo de contactos vacio.
+	- Crea automaticamente el archivo de contactos vacio.
 	-	Corrección de bugs.	
 
 Build Preview 1

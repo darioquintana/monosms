@@ -27,7 +27,7 @@ namespace Mono.Sms {
         private void InitializeComponent() {
             this.pic = new System.Windows.Forms.PictureBox();
             this.btnEnviar = new System.Windows.Forms.Button();
-            this.textBox1 = new TextBoxOnlyNumbers();
+            this.textBox1 = new Mono.Sms.Core.UI.TextBoxOnlyNumbers();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,13 +57,12 @@ namespace Mono.Sms {
             this.textBox1.MaxLength = 4;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(111, 45);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CodigoValidacion
             // 
             this.AcceptButton = this.btnEnviar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(136, 122);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnEnviar);
@@ -73,7 +72,7 @@ namespace Mono.Sms {
             this.MinimizeBox = false;
             this.Name = "CodigoValidacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Codigo de Validacion";
+            this.Text = "Código de Validacion";
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
