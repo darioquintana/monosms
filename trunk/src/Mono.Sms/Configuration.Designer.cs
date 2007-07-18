@@ -104,7 +104,6 @@ namespace Mono.Sms
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.Location = new System.Drawing.Point(5, 1);
             this.checkBox1.Name = "checkBox1";
@@ -114,7 +113,6 @@ namespace Mono.Sms
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(11, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
@@ -123,7 +121,6 @@ namespace Mono.Sms
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(29, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);

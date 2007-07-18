@@ -455,7 +455,7 @@ namespace Mono.Sms
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mono.Sms - Preview Version";
+            this.Text = "Mono.Sms - 0.9.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.gbMensaje.ResumeLayout(false);
