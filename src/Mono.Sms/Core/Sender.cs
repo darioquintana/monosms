@@ -37,6 +37,8 @@ namespace Mono.Sms.Core
 
         private Result SendPost(IProvider provider)
         {
+            //esto necesita refactoring urgente !!!
+
             string hostName = provider.HostName;
 
             string primerRequest =
@@ -81,11 +83,11 @@ TE: deflate, gzip, chunked, identity, trailers
 
             CodigoValidacion frm = new CodigoValidacion();
             frm.PictureBox.ImageLocation = string.Format("http://sms.personal.com.ar/Mensajes/{0}", ImageURL);
+            //frm.PictureBox.Load(string.Format("http://sms.personal.com.ar/Mensajes/{0}", ImageURL));
             frm.ShowDialog();
-            string codigoValidacion = frm.CodigoDeValidacion; 
+            string codigoValidacion = frm.CodigoDeValidacion;
 
             string messageUrlFormated = provider.Message
-
                 .Replace(char.Parse("\u00E1"), char.Parse("a"))
                 .Replace(char.Parse("\u00E9"), char.Parse("e"))
                 .Replace(char.Parse("\u00ED"), char.Parse("i"))
@@ -97,8 +99,10 @@ TE: deflate, gzip, chunked, identity, trailers
 
             messageUrlFormated = messageUrlFormated.Replace("\r\n", "%0D%0A");
 
-            string innerData = string.Format("pantalla=&DE_MESG_TXT={0}&msgtext={1}&Snb={2}&Filename={3}&FormValidar=validar&codigo={4}&Image30.x=0&Image30.y=0",
-               "", messageUrlFormated, provider.CelNumber, HttpUtility.UrlEncode(ImageURL), codigoValidacion);
+            string innerData =
+                string.Format(
+                    "pantalla=&DE_MESG_TXT={0}&msgtext={1}&Snb={2}&Filename={3}&FormValidar=validar&codigo={4}&Image30.x=0&Image30.y=0",
+                    "", messageUrlFormated, provider.CelNumber, HttpUtility.UrlEncode(ImageURL), codigoValidacion);
             //from
             //mensaje
             //numero
@@ -106,7 +110,8 @@ TE: deflate, gzip, chunked, identity, trailers
             //codigo
 
             string tercerRequest =
-               string.Format(@"POST /Mensajes/validar.php HTTP/1.1
+                string.Format(
+                    @"POST /Mensajes/validar.php HTTP/1.1
 User-Agent: Opera/9.21 (Windows NT 5.1; U; es-es)
 Host: sms.personal.com.ar
 Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
@@ -121,11 +126,21 @@ TE: deflate, gzip, chunked, identity, trailers
 Content-Length: {1}
 Content-Type: application/x-www-form-urlencoded
 
-{2}", PHPSESSID, innerData.Length, innerData);
+{2}",
+                    PHPSESSID, innerData.Length, innerData);
 
             string tercerResponse = this.SendRequest(tercerRequest, hostName);
-            
-            return new Result("El Mensaje fué enviado correctamente");
+
+            string imagePathMustBeEmpty = GetImageName(tercerResponse);
+
+            if (imagePathMustBeEmpty == string.Empty)
+            {
+                return new Result("El Mensaje fué enviado correctamente");
+            }
+            else
+            {   //error el codigo de validación fué incorrecto.
+                return new Result("Debe intentar nuevamente", "Ha ingresado mal el código de validación");
+            }
         }
 
         private string SendRequest(string request, string hostname)
@@ -185,7 +200,7 @@ Content-Type: application/x-www-form-urlencoded
         {
             string matchString = "Filename";
             //   tmp/7217t7g82l7e02o7.png <-- tiene 24 caracteres.
-            
+
             using (StringReader sr = new StringReader(response))
             {
                 string linea;
