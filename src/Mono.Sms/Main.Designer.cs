@@ -408,7 +408,7 @@ namespace Mono.Sms
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
@@ -455,7 +455,7 @@ namespace Mono.Sms
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mono.Sms - 0.9.5";
+            this.Text = "Mono.Sms - 0.9.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.gbMensaje.ResumeLayout(false);
