@@ -1,6 +1,11 @@
 Mono.Sms - Notas de la Version
 ==============================
 
+Build 0.9.6
+===========
+	-	Se mejora el Proveedor Personal.
+	-	Corrección de bugs.	
+	
 Build 0.9.5
 ===========
 	-	El proveedor de Personal se agrega el código de validación. 
