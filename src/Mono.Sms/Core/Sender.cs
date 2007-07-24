@@ -27,8 +27,7 @@ namespace Mono.Sms.Core
             IMailSender mailsender = IoC.Instance.Resolve<IMailSender>();
             mailsender.SmtpServer = Settings.Instance.SmtpServer;
             mailsender.From = Settings.Instance.UserEmail;
-            mailsender.To =
-                string.Format("{0}{1}{2}", provider.CelNumber.CodeArea, provider.CelNumber.Number, provider.Domain);
+            mailsender.To = string.Format("{0}{1}{2}", provider.CelNumber.CodeArea, provider.CelNumber.Number, provider.Domain);
             mailsender.Message = provider.Message;
             mailsender.Subject = "mono.sms";
 
@@ -97,9 +96,13 @@ TE: deflate, gzip, chunked, identity, trailers
                     .Replace(char.Parse("\u00FA"), char.Parse("u"))
                     .Replace(char.Parse("\u00F1"), char.Parse("n"));
 
+                messageUrlFormated = PrepararMensaje(messageUrlFormated);
+
                 messageUrlFormated = HttpUtility.UrlEncode(messageUrlFormated);
 
                 messageUrlFormated = messageUrlFormated.Replace("\r\n", "%0D%0A");
+
+              
 
                 string innerData =
                     string.Format(
@@ -149,6 +152,15 @@ Content-Type: application/x-www-form-urlencoded
             {
                 return new Result("No se pudo enviar con este provedor, intente con el Proveedor 'Personal - por e-mail'", ex.Message);
             }
+        }
+
+        private string PrepararMensaje(string messageUrlFormated) 
+        {
+            string trailer = " - Mono.Sms";
+
+            messageUrlFormated = string.Concat(messageUrlFormated, trailer);
+
+            return messageUrlFormated.PadRight(160, ' ');
         }
 
         private string SendRequest(string request, string hostname)
