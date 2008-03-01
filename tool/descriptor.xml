@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<linker>
+  <assembly fullname="Castle.Windsor">
+    <namespace fullname="Castle.Windsor.Configuration.Interpreters.XmlProcessor.ElementProcessors"/>
+    <type fullname="Castle.Windsor.Configuration.AppDomain.CastleSectionHandler"/>
+  </assembly>
+</linker>

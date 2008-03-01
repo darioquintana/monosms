@@ -1,0 +1,1 @@
+monolinker -a Mono.Sms.exe -out linked/ -x descriptor.xml
