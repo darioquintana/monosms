@@ -1,0 +1,87 @@
+<Project defaultDeployTarget="files" name="Mono.Sms" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory="./bin/Debug" assembly="Mono.Sms" />
+      <Build debugmode="True" target="WinExe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" generatexmldocumentation="False" win32Icon="./" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory="./bin/Release" assembly="Mono.Sms" />
+      <Build debugmode="False" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <Contents>
+    <File name="./Properties" subtype="Directory" buildaction="Compile" />
+    <File name="./Core" subtype="Directory" buildaction="Compile" />
+    <File name="./Core/Agenda.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/CelNumber.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Contact.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/IMailSender.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/IoC.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/MailSender.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/MonoSmsResources.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Operation.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Result.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Sender.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/SmtpServers.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Cfg" subtype="Directory" buildaction="Compile" />
+    <File name="./Core/Exception" subtype="Directory" buildaction="Compile" />
+    <File name="./Core/Provider" subtype="Directory" buildaction="Compile" />
+    <File name="./Core/UI" subtype="Directory" buildaction="Compile" />
+    <File name="./Core/Cfg/CfgHelper.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Cfg/MonoSmsSection.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Cfg/Settings.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Provider/BaseProvider.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Provider/CtiProvider.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Provider/IProvider.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/Provider/PersonalProvider.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/UI/ContactsListView.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/UI/ProvidersComboBox.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Core/UI/TextBoxOnyNumbers.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Properties/AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Properties/Settings.Designer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Properties/Settings.settings" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/borrar.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/cancelar.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/configuracion.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/contacto.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/creditos.rtf" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/editar.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/historial.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/mensaje.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/monosmstalking.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/nuevocontacto.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Resources/salir.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./AcercaDe.cs" subtype="Code" buildaction="Compile" />
+    <File name="./AcercaDe.Designer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./AcercaDe.resx" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./App.config" subtype="Code" buildaction="Nothing" />
+    <File name="./Configuration.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Configuration.Designer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Configuration.resx" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Contacts.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Contacts.Designer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Contacts.resx" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Historial.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Historial.Designer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Historial.resx" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Main.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Main.Designer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Main.resx" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="./Program.cs" subtype="Code" buildaction="Compile" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../lib/Castle.Core.dll" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../lib/Castle.DynamicProxy.dll" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../lib/Castle.MicroKernel.dll" />
+    <ProjectReference type="Assembly" localcopy="True" refto="../../lib/Castle.Windsor.dll" />
+  </References>
+</Project>

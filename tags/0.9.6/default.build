@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<project name="Mono.Sms"
+	default="all"
+	xmlns="http://nant.sourceforge.net/release/0.85/nant.xsd"
+	basedir=".">
+
+  <property name="debug" value="true" />
+  <property name="build.dir" value="build" />
+  <property name="build.zip.dir" value="build-zip" />
+  <property name="source.svn.dir" value="source-svn"/>
+  <property name="build.version" value="0.9.5" />
+
+  <!-- target principal -->
+  <target name="all" description="make all !">
+    <call target="generate-assemblyinfo"/>
+    <call target="build"/>
+    <call target="copy"/>
+  </target>
+
+  <target name="clean" description="remueve builds anteriores">
+    <delete dir="${build.dir}"  if="${directory::exists('${build.dir}')}" />
+  </target>
+
+  <target name="init" depends="clean" description="crea el directorio">
+    <mkdir dir="build" />
+  </target>
+
+  <target name="build"  description="compila la aplicacion" depends="clean,init">
+
+    <csc target="winexe" output="${build.dir}/${project::get-name()}.exe" debug="${debug}" win32icon="src/${project::get-name()}/Resources/monosmsicon.ico" >
+
+      <sources>
+        <include name="src/${project::get-name()}/**/*.cs" />
+
+        <!-- exclude ReSharper stuff -->
+        <exclude name="**/_ReSharper*/**" />
+        <exclude name="**/*.resharper" />
+
+        <!-- exclude Visual Studio stuff -->
+        <exclude name="**/*.suo" />
+        <exclude name="**/*.user" />
+        <exclude name="**/bin/**" />
+        <exclude name="**/obj/**" />
+      </sources>
+
+      <references>
+        <include name="System.Drawing.dll"/>
+        <include name="System.Configuration.dll"/>
+        <include name="System.Windows.Forms.dll"/>
+        <include name="System.Configuration.dll"/>
+        <include name="System.Web.dll"/>
+
+        <include name="lib/*.dll" />
+      </references>
+
+      <resources dynamicprefix="false" prefix="${project::get-name()}.Resources">
+        <include name="src/${project::get-name()}/**/*.resx"  />
+        <include name="src/${project::get-name()}/Resources/**/*"/>
+      </resources>
+
+    </csc>
+  </target>
+
+  <target name="copy" description="copia algunos archivos">
+
+	<copy file="src/${project::get-name()}/App.config" tofile="${build.dir}/${project::get-name()}.exe.config"/>
+	<copy file="notasdeversion.txt" tofile="${build.dir}/notasdeversion.txt" />
+	<copy file="leeme.txt" tofile="${build.dir}/leeme.txt" />
+  
+    <!-- copia las librerias necesarias -->
+    <copy todir="${build.dir}/">
+      <fileset basedir="lib">
+        <include name="*.dll" />
+      </fileset>
+    </copy>
+  </target>
+
+
+  <target name="generate-assemblyinfo"
+		depends="init"
+		description="Genera el archivo AssemblyInfo.cs con la informacion del assembly"
+	>
+    <asminfo output="src/Mono.Sms/Properties/AssemblyInfo.cs" language="CSharp">
+      <imports>
+        <import namespace="System" />
+        <import namespace="System.Reflection" />
+      </imports>
+
+      <attributes>
+        <attribute type="CLSCompliantAttribute" value="false" />
+        <attribute type="AssemblyTitleAttribute" value="${project::get-name()}" />
+        <attribute type="AssemblyDescriptionAttribute" value="Aplicacion para el envio de mensajes de texto escrito en c#" />
+        <attribute type="AssemblyCompanyAttribute" value="Mono.Sms Team" />
+        <attribute type="AssemblyProductAttribute" value="Mono.Sms" />
+        <attribute type="AssemblyCopyrightAttribute" value="Copyright © 2007 Dario Quintana and contributors. All Rights Reserved." />
+        <attribute type="AssemblyVersionAttribute" value="${build.version}" />     
+      </attributes>
+    </asminfo>
+
+  </target>
+
+
+<target name="zip" depends="all">
+	<call target="clean.zip"/>
+	<call target="zip.bin"/>
+	<call target="zip.src"/>
+</target>
+
+<target name="clean.zip">
+	<delete dir="${build.zip.dir}"  if="${directory::exists('${build.zip.dir}')}" />
+	<mkdir dir="${build.zip.dir}"/>
+</target>
+
+<target name="zip.bin" description="construye un zip con los archivos binarios">
+	<zip zipfile="${build.zip.dir}/${project::get-name()}.bin.${build.version}.zip">
+	    <fileset basedir="${build.dir}">
+	        <include name="**/*" />
+	    </fileset>
+	</zip>
+</target>
+
+<target name="zip.src" description="construye un zip con el codigo fuente">
+	<zip zipfile="${build.zip.dir}/${project::get-name()}.src.${build.version}.zip">
+	    	<fileset basedir="${project::get-base-directory()}" >		        		
+			<include name="src/**/*"/>
+			<include name="lib/**/*"/>
+			<include name="default.build"/>
+			<include name="*.txt" />
+
+			<!-- exclude ReSharper stuff -->
+		        <exclude name="**/_ReSharper*/**" />
+	        	<exclude name="**/*.resharper" />
+
+	        	<!-- exclude Visual Studio stuff -->
+	        	<exclude name="**/*.suo" />
+	        	<exclude name="**/*.user" />
+	        	<exclude name="**/bin/**" />
+	        	<exclude name="**/obj/**" />
+
+	    	</fileset>
+	</zip>
+</target>
+
+
+
+<!-- SVN target -->
+<property name="svn.executable" value="/usr/bin/svn" />
+<property name="svn.url" value="http://monosms.googlecode.com/svn/trunk/" />
+
+<target name="svn" depends="clean.svn">
+	<call target="checkout"/>
+</target>
+
+<target name="clean.svn">
+	  <delete dir="${source.svn.dir}"  if="${directory::exists('${source.svn.dir}')}" />
+</target>
+
+<target name="checkout" description="Realiza el checkout del svn">
+
+        <!--exec program="${svn.executable}" commandline="checkout ${svn.url} ${project.dir}" /-->
+	<exec program="${svn.executable}" commandline="checkout ${svn.url} ${source.svn.dir}" />
+	project::get-name()
+	<!--svn-checkout
+	    destination="${source.svn.dir}" 
+	    uri="http://monosms.googlecode.com/svn/trunk/" 
+	    recursive="true"
+	    verbose="true"
+	    revision="HEAD"
+	    cache-auth="false"
+	 /-->
+	<!--exec program="svn co http://monosms.googlecode.com/svn/trunk/ ${source.svn.dir}"/-->
+</target>
+</project>
+
